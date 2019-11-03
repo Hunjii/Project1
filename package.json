@@ -1,0 +1,20 @@
+{
+  "name": "project_1",
+  "version": "1.0.0",
+  "description": "Homestays system",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "author": "HungJi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.4",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
