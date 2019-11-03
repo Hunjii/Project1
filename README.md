@@ -1,2 +1,2 @@
-#myApp
+#MyApp
 First project
