@@ -133,57 +133,6 @@
                     </div>
                   </div>
                 </div>
-                <div class="comments fix pt-50">
-                  <h4 class="details-title pb-8 mb-27">3 Feedback</h4>
-                  <div class="single-comment fix mb-18">
-                    <div class="author-image pull_left mr-23">
-                      <img alt src="/assets/images/comment/1.jpg" />
-                    </div>
-                    <div class="comment-text fix">
-                      <div class="author-info">
-                        <h5 class="mb-8">
-                          <a href="#">David Backhum</a>
-                        </h5>
-                        <span class="block mb-11">6 hour ago</span>
-                      </div>
-                      <p
-                        class="mb-18"
-                      >There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tempor inc ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudt</p>
-                    </div>
-                  </div>
-                  <div class="single-comment fix mb-18">
-                    <div class="author-image pull_left mr-23">
-                      <img alt src="/assets/images/comment/2.jpg" />
-                    </div>
-                    <div class="comment-text fix">
-                      <div class="author-info">
-                        <h5 class="mb-8">
-                          <a href="#">Saniya Mirza</a>
-                        </h5>
-                        <span class="block mb-11">8 hour ago</span>
-                      </div>
-                      <p
-                        class="mb-18"
-                      >There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tempor inc ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudt</p>
-                    </div>
-                  </div>
-                  <div class="single-comment fix">
-                    <div class="author-image pull_left mr-23">
-                      <img alt src="/assets/images/comment/3.jpg" />
-                    </div>
-                    <div class="comment-text fix">
-                      <div class="author-info">
-                        <h5 class="mb-8">
-                          <a href="#">Lionel Messi</a>
-                        </h5>
-                        <span class="block mb-11">10 hour ago</span>
-                      </div>
-                      <p
-                        class="mb-18"
-                      >There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tempor inc ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudt</p>
-                    </div>
-                  </div>
-                </div>
                 <div class="new-comment-post mt-35">
                   <h4 class="details-title pb-8 mb-27">Leave a Review</h4>
                   <form action="#" method="post">

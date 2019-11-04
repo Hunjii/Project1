@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 // Routes
 const productRoutes = require('./api/routes/rooms.js');
+const userRoustes = requires('./api/routes/users.js');
 
 // Connect database
 mongoose.connect(
@@ -47,6 +48,7 @@ app.use((req, res, next) => {
 
 // Routes which should handle requests
 app.use('/api/rooms', productRoutes);
+app.use('/api/user', userRoustes);
 
 app.use((req, res, next) => {
   const error = new Error('Not found');

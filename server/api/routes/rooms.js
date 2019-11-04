@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-//const checkAuth = require('../middleware/check-auth');
+const checkAuth = require('../middleware/check-auth');
 const RoomsController = require('../controllers/rooms.js');
 
 const storage = multer.diskStorage({
@@ -38,13 +38,14 @@ router.get('/', RoomsController.Rooms_get_all);
 router.post(
   '/',
   upload.array('roomImage', 5),
+  checkAuth,
   RoomsController.Rooms_create_room
 );
 
 router.get('/:roomId', RoomsController.Rooms_get_room);
 
-router.patch('/:roomId', /*checkAuth,*/ RoomsController.Rooms_update_room);
+router.patch('/:roomId', checkAuth, RoomsController.Rooms_update_room);
 
-router.delete('/:roomId', /*checkAuth,*/ RoomsController.Rooms_delete);
+router.delete('/:roomId', checkAuth, RoomsController.Rooms_delete);
 
 module.exports = router;

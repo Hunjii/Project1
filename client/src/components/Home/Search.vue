@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="find-area pt-72 pb-72 bg-light">
     <div class="container">
       <!-- <div class="row">
@@ -106,6 +107,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
