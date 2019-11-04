@@ -15,33 +15,7 @@
           </div>
           <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 header-right">
             <div class="pull_right">
-              <div class="header-login-register">
-                <span>
-                  <a href="create-agency.html">Create Agency</a>
-                </span>
-                <Login />
-                <Register />
-              </div>
-              <div class="search-btn">
-                <ul data-toggle="dropdown" class="header-search search-toggle">
-                  <li class="search-menu">
-                    <img src="assets/images/icons/search.png" alt class="p-img" />
-                    <img src="assets/images/icons/search-hover.png" alt class="s-img" />
-                  </li>
-                </ul>
-                <div class="search">
-                  <div class="search-form">
-                    <form id="search-form" action="#">
-                      <input type="search" placeholder="Search here..." name="search" />
-                      <button type="submit">
-                        <span>
-                          <i class="fa fa-search"></i>
-                        </span>
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
+              <Login />
             </div>
             <a
               href="#"
@@ -225,13 +199,11 @@
 
 <script>
 import Login from "./Login-Register/Login.vue";
-import Register from "./Login-Register/Register.vue";
 
 export default {
   name: "Navigation",
   components: {
-    Login,
-    Register
+    Login
   },
   data: () => ({
     navList: [
