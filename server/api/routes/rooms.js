@@ -38,7 +38,6 @@ router.get('/', RoomsController.Rooms_get_all);
 router.post(
   '/',
   upload.array('roomImage', 5),
-  checkAuth,
   RoomsController.Rooms_create_room
 );
 

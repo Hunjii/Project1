@@ -4,58 +4,77 @@
       <span>
         <a href="create-agency.html">Create Agency</a>
       </span>
-      <ul class="login">
+      <ul class="login" v-if="!status">
         <li>
           <a href="#">Login</a>
           <div class="login-form">
             <h4>Login</h4>
-            <form action="#" method="post">
+            <form @submit.prevent="Login" method="post">
               <div class="input-box mb-19">
                 <i class="fa fa-user"></i>
-                <input type="text" name="user-name" placeholder="Username" />
+                <input type="text" name="user-name" placeholder="Username" v-model="login.email" />
               </div>
               <div class="input-box">
                 <i class="fa fa-lock"></i>
-                <input type="password" name="user-password" placeholder="Password" />
+                <input
+                  type="password"
+                  name="user-password"
+                  placeholder="Password"
+                  v-model="login.password"
+                />
               </div>
               <div class="button-box">
                 <div class="fix">
                   <input type="checkbox" value="remember" name="remember" />
                   <span>Remember me</span>
                 </div>
-                <button type="submit" class="register-btn button lemon pull_right">Login</button>
+                <button v-on:click="Login" class="register-btn button lemon pull_right">Login</button>
               </div>
             </form>
           </div>
         </li>
       </ul>
-      <ul class="login">
+      <ul class="login" v-if="!status">
         <li>
           <a href="#">Register</a>
           <div class="login-form">
             <h4>Sign Up</h4>
-            <form action="#" method="post">
-              <div class="input-box mb-19">
-                <i class="fa fa-user"></i>
-                <input type="text" name="first-name" placeholder="Firstname" />
-              </div>
-              <div class="input-box mb-19">
-                <i class="fa fa-user"></i>
-                <input type="text" name="last-name" placeholder="Lastname" />
-              </div>
+            <form @submit.prevent="sign_Up" method="post">
               <div class="input-box mb-19">
                 <i class="fa fa-envelope"></i>
-                <input type="email" name="user-email" placeholder="Email" />
+                <input type="email" name="user-email" placeholder="Email" v-model="signup.email" />
               </div>
-              <div class="input-box">
+              <div class="input-box mb-19">
                 <i class="fa fa-lock"></i>
-                <input type="password" name="user-password" placeholder="Password" />
+                <input
+                  type="password"
+                  name="user-password"
+                  placeholder="Password"
+                  v-model="signup.password"
+                />
+              </div>
+              <div class="input-box mb-19">
+                <i class="fa fa-unlock"></i>
+                <input
+                  type="text"
+                  placeholder="Comfirm"
+                  v-model="signup.passComfirm"
+                  :class="repeatPassword"
+                />
               </div>
               <div class="button-box mt-20">
-                <button type="submit" class="register-btn button lemon pull_right">Sign Up</button>
+                <button v-on:click="sign_Up" class="register-btn button lemon pull_right">Sign Up</button>
               </div>
             </form>
           </div>
+        </li>
+      </ul>
+      <ul class="login" v-if="status">
+        <li>
+          <a>
+            Welcome
+            <span class="name">{{ login.email }}</span>
+          </a>
         </li>
       </ul>
       <div class="search-btn">
@@ -83,10 +102,65 @@
 </template>
 
 <script>
+import Service from "../../Service.js";
+
 export default {
-  name: "Login"
+  name: "Login",
+  data() {
+    return {
+      signup: {
+        email: "",
+        password: "",
+        passComfirm: ""
+      },
+      login: {
+        email: "",
+        password: ""
+      },
+      status: false
+    };
+  },
+  computed: {
+    repeatPassword() {
+      return this.signup.passComfirm === this.signup.password
+        ? "color2"
+        : "color";
+    }
+  },
+  created() {
+    if (localStorage.getItem("token") !== null) {
+      this.login.email = localStorage.getItem("email");
+      return (this.status = true);
+    }
+  },
+  methods: {
+    async sign_Up() {
+      await Service.SignUp(this.signup.email, this.signup.password);
+      this.signup.email = "";
+      this.signup.password = "";
+    },
+
+    async Login() {
+      const login = await Service.Login(this.login.email, this.login.password);
+      const token = await login.data.token;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("email", this.login.email);
+      this.status = true;
+    }
+  }
 };
 </script>
 
-<style>
+<style  scoped>
+.color {
+  color: red;
+}
+
+.color2 {
+  color: green;
+}
+.name {
+  font-size: 15px;
+}
 </style>

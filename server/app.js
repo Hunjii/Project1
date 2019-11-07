@@ -6,27 +6,19 @@ const mongoose = require('mongoose');
 
 // Routes
 const productRoutes = require('./api/routes/rooms.js');
-const userRoustes = requires('./api/routes/users.js');
+const userRoustes = require('./api/routes/users.js');
 
 // Connect database
-mongoose.connect(
-  'mongodb+srv://hungji:hungvipka0912@mycluster-9ncca.mongodb.net/test?retryWrites=true&w=majority',
-  {
-    useNewUrlParser: true
-  }
-);
+// mongoose.connect(
+//   'mongodb+srv://hungji:hungvipka0912@mycluster-9ncca.mongodb.net/test?retryWrites=true&w=majority',
+//   {
+//     useNewUrlParser: true
+//   }
+// );
 
-// app.use('/public', express.static(__dirname + '/static-files-dir'));
-
-// /* other routes defined before catch-all */
-// app.get('/some-route', (req, res) => {
-//   res.send('ok');
-// });
-
-// /* final catch-all route to index.html defined last */
-// app.get('/*', (req, res) => {
-//   res.sendFile(__dirname + '/index.html');
-// });
+mongoose.connect('mongodb://127.0.0.1:27017/realstate', {
+  useNewUrlParser: true
+});
 
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'));
