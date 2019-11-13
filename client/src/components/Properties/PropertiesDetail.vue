@@ -22,8 +22,14 @@
         <div class="container">
           <div class="row">
             <div class="col-md-8">
-              <div class="property-image mb-57">
-                <img :src="`/${room.Room.roomImage[0].pathImg}`" alt />
+              <div
+                class="property-image mb-57"
+                v-for="(img, index) in room.Room.roomImage"
+                v-bind:item="img"
+                v-bind:index="index"
+                v-bind:key="img._id"
+              >
+                <img :src="`/${img.pathImg}`" alt />
               </div>
               <div class="property-desc mb-56">
                 <h4 class="details-title mb-22">Description</h4>

@@ -5,6 +5,7 @@ import Properties from './components/Properties/Properties.vue';
 import PropertiesDetail from './components/Properties/PropertiesDetail.vue';
 import About from './components/About/About.vue';
 import Contact from './components/Contact/Contact.vue';
+import AddProperties from './components/Properties/AddProperties.vue';
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,11 @@ const router = new VueRouter({
       path: '/contact',
       name: 'Contact',
       component: Contact
+    },
+    {
+      path: '/addproperties',
+      name: 'AddProperties',
+      component: AddProperties
     }
   ]
 });

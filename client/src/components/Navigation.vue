@@ -3,7 +3,7 @@
     <div class="header-top bg-violet">
       <div class="container">
         <div class="row">
-          <div class="col-lg-7 col-md-6 col-sm-6 hidden-xs">
+          <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
             <div class="header-top-info">
               <img src="assets/images/icons/h-phone.png" alt />
               <span class="ml-8">+012 345 678 102</span>
@@ -13,16 +13,14 @@
               <span class="ml-8">info@example.com</span>
             </div>
           </div>
-          <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 header-right">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 header-right">
             <div class="pull_right">
               <Login />
             </div>
-            <a
-              href="#"
+            <router-link
+              :to="{ name : 'AddProperties' }"
               class="add-property-btn button text-uppercase mr-15 modal-view button"
-              data-toggle="modal"
-              data-target="#propertyModal"
-            >ADD Property</a>
+            >ADD Property</router-link>
           </div>
         </div>
       </div>

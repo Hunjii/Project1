@@ -28,7 +28,7 @@
                   <input type="checkbox" value="remember" name="remember" />
                   <span>Remember me</span>
                 </div>
-                <button v-on:click="Login" class="register-btn button lemon pull_right">Login</button>
+                <button class="register-btn button lemon pull_right">Login</button>
               </div>
             </form>
           </div>
@@ -63,7 +63,7 @@
                 />
               </div>
               <div class="button-box mt-20">
-                <button v-on:click="sign_Up" class="register-btn button lemon pull_right">Sign Up</button>
+                <button class="register-btn button lemon pull_right">Sign Up</button>
               </div>
             </form>
           </div>
@@ -71,10 +71,12 @@
       </ul>
       <ul class="login" v-if="status">
         <li>
-          <a>
-            Welcome
-            <span class="name">{{ login.email }}</span>
-          </a>
+          <a href>Welcome {{ login.email }}</a>
+        </li>
+      </ul>
+      <ul class="login" v-if="status">
+        <li>
+          <a href v-on:click="LogOut">Log Out</a>
         </li>
       </ul>
       <div class="search-btn">
@@ -147,6 +149,12 @@ export default {
       localStorage.setItem("token", token);
       localStorage.setItem("email", this.login.email);
       this.status = true;
+    },
+
+    async LogOut() {
+      await localStorage.removeItem("token");
+      await localStorage.removeItem("email");
+      this.status = false;
     }
   }
 };
@@ -162,5 +170,13 @@ export default {
 }
 .name {
   font-size: 15px;
+}
+.infor {
+  width: 130px;
+  right: -1px;
+  color: black;
+}
+.mb {
+  color: black;
 }
 </style>

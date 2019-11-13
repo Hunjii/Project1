@@ -1,10 +1,28 @@
-import axios from 'axios';
+import axios from "axios";
 
-const url_room = 'http://localhost:3000/api/rooms';
-const url_user = 'http://localhost:3000/api/user';
+const url_room = "http://localhost:3000/api/rooms";
+const url_user = "http://localhost:3000/api/user";
 
 class Service {
   // Get Rooms
+  static getSerchRooms(city, district, areamin, areamax) {
+    return new Promise(async (resolve, rejects) => {
+      try {
+        const res = await axios.get(
+          `${url_room}/search?city=${city}&district=${district}&areamin=${areamin}&areamax=${areamax}`
+        );
+        const data = res.data;
+        resolve(
+          data.Rooms.map(room => ({
+            ...room
+          }))
+        );
+      } catch (err) {
+        rejects(err);
+      }
+    });
+  }
+
   static getRooms() {
     return new Promise(async (resolve, rejects) => {
       try {
@@ -34,6 +52,18 @@ class Service {
     });
   }
 
+  static createRoom(formData, auth) {
+    return new Promise((resolve, reject) => {
+      axios
+        .post(url_room, formData, auth)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
   static SignUp(email, password) {
     return axios.post(`${url_user}/signup`, {
       email,

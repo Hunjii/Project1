@@ -9,10 +9,10 @@ const roomSchema = mongoose.Schema({
   roomImage: [{ pathImg: String }],
   discription: { type: String, required: true },
   area: { type: Number, required: true },
-  bathroom: { type: Number, required: true },
-  bedroom: { type: Number, required: true },
-  kitchen: { type: Number, required: true },
-  garage: { type: Number, required: true },
+  bathroom: { type: Number, required: true, default: 1 },
+  bedroom: { type: Number, required: true, default: 1 },
+  kitchen: { type: Number, required: true, default: 1 },
+  garage: { type: Number, required: true, default: 1 },
   active: { type: Boolean, require: true }
   //host: { type: mongoose.Schema.Types.ObjectId, ref: 'Host' }
 });

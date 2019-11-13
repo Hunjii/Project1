@@ -20,53 +20,73 @@
         <div class="row">
           <div
             class="col-lg-4 col-md-6 mb-40 col-sm-6"
-            v-for="(room, index) in rooms"
+            v-for="(room, index) in filterActive(rooms)"
             v-bind:item="room"
             v-bind:index="index"
             v-bind:key="room._id"
           >
-            <div class="single-property hover-effect-two">
-              <div class="property-title fix pl-18 pr-18 pt-22 pb-18 bg-violet">
-                <div class="title-left pull_left">
-                  <h4 class="text-white mb-12">
-                    <a href="properties-details.html">{{ room.name }}</a>
-                  </h4>
-                  <span>
-                    <span class="mr-10">
-                      <img src="assets/images/icons/map.png" alt />
-                    </span>
-                    {{ room.address }}
-                  </span>
-                </div>
-                <div class="fix pull_right">
-                  <h3>${{ room.price }}</h3>
-                </div>
-              </div>
-              <div class="property-image">
-                <router-link
-                  :to="{ name: 'PropertiesDetail', params: { id: room._id }}"
-                  class="block dark-hover"
+            <div>
+              <div class="single-property hover-effect-two">
+                <div
+                  class="property-title fix pl-18 pr-18 pt-22 pb-18 bg-violet"
                 >
-                  <img :src="room.roomImage[0].pathImg" alt />
-                  <span class="img-button text-uppercase">More Details</span>
-                  <span class="p-tag bg-lemon">FOR SALE</span>
-                </router-link>
-                <div class="hover-container pl-15 pr-15 pt-16 pb-15">
-                  <div class="hover-item">
-                    <img class="mr-10" src="assets/images/icons/floor.png" alt />
-                    <span>{{ room.area }} sqft</span>
+                  <div class="title-left pull_left">
+                    <h4 class="text-white mb-12">
+                      <a href="properties-details.html">{{ room.name }}</a>
+                    </h4>
+                    <span>
+                      <span class="mr-10">
+                        <img src="assets/images/icons/map.png" alt />
+                      </span>
+                      {{ room.address }}
+                    </span>
                   </div>
-                  <div class="hover-item">
-                    <img class="mr-10" src="assets/images/icons/bed.png" alt />
-                    <span>{{ room.bedroom }}</span>
+                  <div class="fix pull_right">
+                    <h3>${{ room.price }}</h3>
                   </div>
-                  <div class="hover-item">
-                    <img class="mr-10" src="assets/images/icons/shower.png" alt />
-                    <span>{{ room.bathroom }}</span>
-                  </div>
-                  <div class="hover-item">
-                    <img class="mr-10" src="assets/images/icons/garage.png" alt />
-                    <span>{{ room.garage }}</span>
+                </div>
+                <div class="property-image">
+                  <router-link
+                    :to="{ name: 'PropertiesDetail', params: { id: room._id } }"
+                    class="block dark-hover"
+                  >
+                    <img :src="room.roomImage[0].pathImg" alt />
+                    <span class="img-button text-uppercase">More Details</span>
+                    <span class="p-tag bg-lemon">{{ room.category }}</span>
+                  </router-link>
+                  <div class="hover-container pl-15 pr-15 pt-16 pb-15">
+                    <div class="hover-item">
+                      <img
+                        class="mr-10"
+                        src="assets/images/icons/floor.png"
+                        alt
+                      />
+                      <span>{{ room.area }} sqft</span>
+                    </div>
+                    <div class="hover-item">
+                      <img
+                        class="mr-10"
+                        src="assets/images/icons/bed.png"
+                        alt
+                      />
+                      <span>{{ room.bedroom }}</span>
+                    </div>
+                    <div class="hover-item">
+                      <img
+                        class="mr-10"
+                        src="assets/images/icons/shower.png"
+                        alt
+                      />
+                      <span>{{ room.bathroom }}</span>
+                    </div>
+                    <div class="hover-item">
+                      <img
+                        class="mr-10"
+                        src="assets/images/icons/garage.png"
+                        alt
+                      />
+                      <span>{{ room.garage }}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -121,10 +141,53 @@ export default {
       text: ""
     };
   },
+  methods: {
+    filterActive(list) {
+      return list.filter(room => {
+        return room.active;
+      });
+    }
+  },
+  watch: {
+    "$route.query": {
+      immediate: true,
+      async handler(values) {
+        console.log(values);
+        // console.log(district);
+        // console.log(areamin);
+        // console.log(areamax);
+
+        // if () == undefined) {
+        //   this.rooms = await Service.getRooms();
+        // } else
+        //   this.rooms = await Service.getSerchRooms(
+        //     city,
+        //     district,
+        //     areamin,
+        //     areamax
+        //   );
+      }
+    }
+  },
+  // watch: {
+  //   check() {
+  //     try {
+  //       const auth = {
+  //         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+  //       };
+  //       if (this.$route.query.search === undefined) {
+  //         this.rooms = Service.getRooms(auth, "");
+  //         console.log(this.$route.query.search);
+  //       } else this.rooms = Service.getRooms(auth, this.$route.query.search);
+  //       console.log(this.$route.query.search);
+  //     } catch (err) {
+  //       this.error = err.message;
+  //     }
+  //   }
+  //},
   async created() {
     try {
       this.rooms = await Service.getRooms();
-      console.log(this.rooms);
     } catch (err) {
       this.error = err.message;
     }
@@ -132,5 +195,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
