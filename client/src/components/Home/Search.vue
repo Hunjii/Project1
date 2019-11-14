@@ -7,32 +7,36 @@
             <form @submit.prevent="searching" class="col-10">
               <div class="form-box mb-40 pl-15 pr-15">
                 <div class="select">
-                  <select name="location" v-model="search.city">
-                    <option>HCM</option>
-                    <option>Dhaka</option>
-                    <option>Shylet</option>
-                    <option>Khulna</option>
-                    <option>Barishal</option>
-                    <option>Chittagong</option>
+                  <select
+                    name="location"
+                    v-model="search.city"
+                    @change="onChange($event)"
+                  >
+                    <option disabled value="">Please select city</option>
+                    <option v-for="data in cityJsons" v-bind:key="data.code">{{
+                      data.name_with_type
+                    }}</option>
                   </select>
                 </div>
               </div>
               <div class="form-box mb-40 pl-15 pr-15">
                 <div class="select">
-                  <select name="sub-location" v-model="search.district">
-                    <option>Sub - Location</option>
-                    <option>m</option>
-                    <option>Shylet</option>
-                    <option>Khulna</option>
-                    <option>Barishal</option>
-                    <option>Chittagong</option>
+                  <select
+                    name="sub-location"
+                    v-model="search.district"
+                    @change="onChangeDistrict($event)"
+                  >
+                    <option disabled value="">Please select district</option>
+                    <option v-for="data in district" v-bind:key="data.code">{{
+                      data.name_with_type
+                    }}</option>
                   </select>
                 </div>
               </div>
               <div class="form-box mb-40 pl-15 pr-15">
                 <div class="select">
                   <select name="min-sqft" v-model="search.areamin">
-                    <option>Min area (sqft)</option>
+                    <option disabled value="">Please select min area</option>
                     <option>0</option>
                     <option>100</option>
                     <option>200</option>
@@ -44,7 +48,7 @@
               <div class="form-box mb-40 pl-15 pr-15">
                 <div class="select">
                   <select name="max-sqft" v-model="search.areamax">
-                    <option>Max area (sqft)</option>
+                    <option disabled value="">Please select max area</option>
                     <option>500</option>
                     <option>600</option>
                     <option>700</option>
@@ -109,19 +113,23 @@
 </template>
 
 <script>
-//import Service from "../../Service.js";
+import cityJson from "../../../Data/City.json";
+import Json01 from "../../../Data/District/01.json";
+import Json02 from "../../../Data/District/48.json";
+import Json03 from "../../../Data/District/79.json";
 
 export default {
   name: "Search",
   data() {
     return {
-      rooms: [],
       search: {
         city: "",
         district: "",
         areamin: "",
         areamax: ""
-      }
+      },
+      cityJsons: cityJson,
+      district: ""
     };
   },
   methods: {
@@ -131,16 +139,25 @@ export default {
       };
       if (this.search !== "") {
         route.query = {
-          city: this.search.city,
-          district: this.search.district,
+          city: this.search.city.slice(10),
+          district: this.search.district.slice(5),
           areamin: this.search.areamin,
           areamax: this.search.areamax
         };
       }
-      this.$router.push(route);
+      await this.$router.push(route);
+      await this.$root.$emit("searching", this.search);
+    },
 
-      // this.$router.push({ query: { searchs: this.search.city } });
-      // console.log(this.$router.query.searchs);
+    onChange(event) {
+      console.log(event.target.value);
+      if (event.target.value == "Thành phố Hà Nội") this.district = Json01;
+      if (event.target.value == "Thành phố Đà Nẵng") this.district = Json02;
+      if (event.target.value == "Thành phố Hồ Chí Minh") this.district = Json03;
+    },
+
+    onChangeDistrict(event) {
+      this.searching.district = event.target.value;
     }
   }
 };

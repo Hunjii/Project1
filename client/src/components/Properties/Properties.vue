@@ -18,9 +18,10 @@
     <div class="property-area ptb-120 property-page">
       <div class="container">
         <div class="row">
+          <p v-if="this.rooms.length == 0">Nothing hear</p>
           <div
             class="col-lg-4 col-md-6 mb-40 col-sm-6"
-            v-for="(room, index) in filterActive(rooms)"
+            v-for="(room, index) in rooms"
             v-bind:item="room"
             v-bind:index="index"
             v-bind:key="room._id"
@@ -138,7 +139,11 @@ export default {
     return {
       rooms: [],
       error: "",
-      text: ""
+      text: "",
+      search: {
+        city: "",
+        district: ""
+      }
     };
   },
   methods: {
@@ -148,43 +153,22 @@ export default {
       });
     }
   },
-  watch: {
-    "$route.query": {
-      immediate: true,
-      async handler(values) {
-        console.log(values);
-        // console.log(district);
-        // console.log(areamin);
-        // console.log(areamax);
+  async mounted() {
+    await this.$root.$on("searching", search => {
+      if (search.areamin == "") search.areamin = "0";
+      if (search.areamax == "") search.areamax = "900";
 
-        // if () == undefined) {
-        //   this.rooms = await Service.getRooms();
-        // } else
-        //   this.rooms = await Service.getSerchRooms(
-        //     city,
-        //     district,
-        //     areamin,
-        //     areamax
-        //   );
-      }
-    }
+      Service.getSerchRooms(
+        search.city.slice(10),
+        search.district.slice(5),
+        search.areamin,
+        search.areamax
+      ).then(res => {
+        this.rooms = res;
+      });
+      console.log(this.rooms);
+    });
   },
-  // watch: {
-  //   check() {
-  //     try {
-  //       const auth = {
-  //         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
-  //       };
-  //       if (this.$route.query.search === undefined) {
-  //         this.rooms = Service.getRooms(auth, "");
-  //         console.log(this.$route.query.search);
-  //       } else this.rooms = Service.getRooms(auth, this.$route.query.search);
-  //       console.log(this.$route.query.search);
-  //     } catch (err) {
-  //       this.error = err.message;
-  //     }
-  //   }
-  //},
   async created() {
     try {
       this.rooms = await Service.getRooms();
