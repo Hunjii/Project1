@@ -34,50 +34,92 @@
               <div class="property-desc mb-56">
                 <h4 class="details-title mb-22">Description</h4>
                 <p class="mb-24">
-                  <span>Dom-Inno is</span> ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etlor magna iqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut quipx ea codo loremed consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolo
+                  <span>Dom-Inno is</span> ipsum dolor sit amet, consectetur
+                  adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  etlor magna iqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut quipx ea codo loremed
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate
+                  velit esse cillum dolo
                 </p>
-                <p
-                  class="mb-28"
-                >Dom-Inno is the Best should be the consectetur adipiscing elit, sed do eiusmod tempor incidint ut labore lore gna iqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacm emod tempor nt ut labore lore magna iqua. Ut enim ad minim veniamco laboris nisi ut aliqu</p>
-                <p>Dom-Inno is the Best should be the consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore lore gna iqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacm</p>
+                <p class="mb-28">
+                  Dom-Inno is the Best should be the consectetur adipiscing
+                  elit, sed do eiusmod tempor incidint ut labore lore gna iqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex eacm emod tempor nt ut labore lore
+                  magna iqua. Ut enim ad minim veniamco laboris nisi ut aliqu
+                </p>
+                <p>
+                  Dom-Inno is the Best should be the consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore lore gna
+                  iqua. Ut enim ad minim veniam, quis nostrud exercitation
+                  ullamco laboris nisi ut aliquip ex eacm
+                </p>
               </div>
               <div class="property-details">
                 <div class="row">
                   <div class="col-md-6">
                     <h4 class="details-title mb-38">Condition</h4>
-                    <div class="bg-gray fix pl-35 pt-42 pr-35 pb-39 left-column mb-56">
+                    <div
+                      class="bg-gray fix pl-35 pt-42 pr-35 pb-39 left-column mb-56"
+                    >
                       <div class="desc-info mb-37">
-                        <img src="/assets/images/icons/g-floor.png" alt class="pr-8" />
+                        <img
+                          src="/assets/images/icons/g-floor.png"
+                          alt
+                          class="pr-8"
+                        />
                         <span>{{ room.Room.area }} sqft</span>
                       </div>
                       <div class="desc-info mb-37">
-                        <img src="/assets/images/icons/g-bed.png" alt class="pr-8" />
+                        <img
+                          src="/assets/images/icons/g-bed.png"
+                          alt
+                          class="pr-8"
+                        />
                         <span>Bedroom {{ room.Room.bedroom }}</span>
                       </div>
                       <div class="desc-info mb-37">
-                        <img src="/assets/images/icons/g-shower.png" alt class="pr-8" />
+                        <img
+                          src="/assets/images/icons/g-shower.png"
+                          alt
+                          class="pr-8"
+                        />
                         <span>Bathroom {{ room.Room.bathroom }}</span>
                       </div>
                       <div class="desc-info mb-37">
-                        <img src="/assets/images/icons/g-garage.png" alt class="pr-8" />
+                        <img
+                          src="/assets/images/icons/g-garage.png"
+                          alt
+                          class="pr-8"
+                        />
                         <span>Garage {{ room.Room.garage }}</span>
                       </div>
                       <div class="desc-info mb-35">
-                        <img src="/assets/images/icons/kitchen.png" alt class="pr-8" />
+                        <img
+                          src="/assets/images/icons/kitchen.png"
+                          alt
+                          class="pr-8"
+                        />
                         <span>Kitchen {{ room.Room.kitchen }}</span>
                       </div>
                       <div class="desc-info mb-35">
                         <span class="price">${{ room.Room.price }}</span>
                       </div>
                       <div class="desc-info">
-                        <img src="/assets/images/icons/g-map.png" alt class="pr-8" />
+                        <img
+                          src="/assets/images/icons/g-map.png"
+                          alt
+                          class="pr-8"
+                        />
                         <span class="location">{{ room.Room.address }}</span>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <h4 class="details-title mb-38">Amenities</h4>
-                    <div class="bg-gray fix pl-50 pr-50 pt-44 pb-38 right-column mb-56">
+                    <div
+                      class="bg-gray fix pl-50 pr-50 pt-44 pb-38 right-column mb-56"
+                    >
                       <div class="desc-info mb-26">
                         <i class="fa fa-check-square-o mr-9"></i>
                         <span>Air Conditioning</span>
@@ -176,7 +218,9 @@
                         class="button text-uppercase lemon pl-30 pr-30"
                         type="submit"
                         value
-                      >Submit review</button>
+                      >
+                        Submit review
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -190,27 +234,40 @@
                 <div class="row">
                   <div class="col-md-6 pr-9 mb-18 col-sm-3">
                     <div class="single-property hover-effect-two">
-                      <div class="property-title fix pl-18 pr-18 pt-9 pb-0 bg-violet">
+                      <div
+                        class="property-title fix pl-18 pr-18 pt-9 pb-0 bg-violet"
+                      >
                         <div class="title-left">
                           <h4 class="text-white mb-12">
-                            <a href="properties-details.html">Sizling de Villa</a>
+                            <a href="properties-details.html"
+                              >Sizling de Villa</a
+                            >
                           </h4>
                         </div>
                       </div>
                       <div class="property-image">
-                        <a href="properties-details.html" class="block dark-hover">
+                        <a
+                          href="properties-details.html"
+                          class="block dark-hover"
+                        >
                           <img src="/assets/images/properties/s-1.jpg" alt />
-                          <span class="img-button text-uppercase">More Details</span>
+                          <span class="img-button text-uppercase"
+                            >More Details</span
+                          >
                         </a>
                       </div>
-                      <div class="property-title fix pl-18 pr-18 pt-9 pb-9 bg-violet">
+                      <div
+                        class="property-title fix pl-18 pr-18 pt-9 pb-9 bg-violet"
+                      >
                         <h3>$52,354</h3>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6 pl-9 mb-18 col-sm-3">
                     <div class="single-property hover-effect-two">
-                      <div class="property-title fix pl-18 pr-18 pt-9 pb-0 bg-violet">
+                      <div
+                        class="property-title fix pl-18 pr-18 pt-9 pb-0 bg-violet"
+                      >
                         <div class="title-left">
                           <h4 class="text-white mb-12">
                             <a href="properties-details.html">Zackson Heits</a>
@@ -218,19 +275,28 @@
                         </div>
                       </div>
                       <div class="property-image">
-                        <a href="properties-details.html" class="block dark-hover">
+                        <a
+                          href="properties-details.html"
+                          class="block dark-hover"
+                        >
                           <img src="/assets/images/properties/s-2.jpg" alt />
-                          <span class="img-button text-uppercase">More Details</span>
+                          <span class="img-button text-uppercase"
+                            >More Details</span
+                          >
                         </a>
                       </div>
-                      <div class="property-title fix pl-18 pr-18 pt-9 pb-9 bg-violet">
+                      <div
+                        class="property-title fix pl-18 pr-18 pt-9 pb-9 bg-violet"
+                      >
                         <h3>$65,435</h3>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6 pr-9 col-sm-3">
                     <div class="single-property hover-effect-two">
-                      <div class="property-title fix pl-18 pr-18 pt-9 pb-0 bg-violet">
+                      <div
+                        class="property-title fix pl-18 pr-18 pt-9 pb-0 bg-violet"
+                      >
                         <div class="title-left">
                           <h4 class="text-white mb-12">
                             <a href="properties-details.html">Dom Plaza</a>
@@ -238,19 +304,28 @@
                         </div>
                       </div>
                       <div class="property-image">
-                        <a href="properties-details.html" class="block dark-hover">
+                        <a
+                          href="properties-details.html"
+                          class="block dark-hover"
+                        >
                           <img src="/assets/images/properties/s-3.jpg" alt />
-                          <span class="img-button text-uppercase">More Details</span>
+                          <span class="img-button text-uppercase"
+                            >More Details</span
+                          >
                         </a>
                       </div>
-                      <div class="property-title fix pl-18 pr-18 pt-9 pb-9 bg-violet">
+                      <div
+                        class="property-title fix pl-18 pr-18 pt-9 pb-9 bg-violet"
+                      >
                         <h3>$67,879</h3>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6 pl-9 col-sm-3">
                     <div class="single-property hover-effect-two">
-                      <div class="property-title fix pl-18 pr-18 pt-9 pb-0 bg-violet">
+                      <div
+                        class="property-title fix pl-18 pr-18 pt-9 pb-0 bg-violet"
+                      >
                         <div class="title-left">
                           <h4 class="text-white mb-12">
                             <a href="properties-details.html">Rose de Villa</a>
@@ -258,12 +333,19 @@
                         </div>
                       </div>
                       <div class="property-image">
-                        <a href="properties-details.html" class="block dark-hover">
+                        <a
+                          href="properties-details.html"
+                          class="block dark-hover"
+                        >
                           <img src="/assets/images/properties/s-4.jpg" alt />
-                          <span class="img-button text-uppercase">More Details</span>
+                          <span class="img-button text-uppercase"
+                            >More Details</span
+                          >
                         </a>
                       </div>
-                      <div class="property-title fix pl-18 pr-18 pt-9 pb-9 bg-violet">
+                      <div
+                        class="property-title fix pl-18 pr-18 pt-9 pb-9 bg-violet"
+                      >
                         <h3>$87,345</h3>
                       </div>
                     </div>
@@ -282,7 +364,9 @@
                           <img src="/assets/images/team/s-1.jpg" alt />
                         </a>
                         <h5>
-                          <a href="agent-details.html" class="block">Ross Taylor</a>
+                          <a href="agent-details.html" class="block"
+                            >Ross Taylor</a
+                          >
                         </h5>
                       </div>
                     </div>
@@ -295,19 +379,27 @@
                 </div>
                 <ul class="tags">
                   <li>
-                    <a href="properties-details.html" class="mb-15 mr-7">Real Estate</a>
+                    <a href="properties-details.html" class="mb-15 mr-7"
+                      >Real Estate</a
+                    >
                   </li>
                   <li>
                     <a href="index.html" class="mb-15 ml-7 mr-7">Home</a>
                   </li>
                   <li>
-                    <a href="properties-details.html" class="mb-15 ml-7">Appartment</a>
+                    <a href="properties-details.html" class="mb-15 ml-7"
+                      >Appartment</a
+                    >
                   </li>
                   <li>
-                    <a href="properties-details.html" class="mb-15 mr-7">Duplex Villa</a>
+                    <a href="properties-details.html" class="mb-15 mr-7"
+                      >Duplex Villa</a
+                    >
                   </li>
                   <li>
-                    <a href="properties-details.html" class="mb-15 ml-7">Buy Property</a>
+                    <a href="properties-details.html" class="mb-15 ml-7"
+                      >Buy Property</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -354,5 +446,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

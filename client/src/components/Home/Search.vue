@@ -57,29 +57,6 @@
                   </select>
                 </div>
               </div>
-              <div class="form-box pl-15 pr-15">
-                <div class="select">
-                  <select name="bedrooms">
-                    <option>No. of Beadrooms</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-box pl-15 pr-15">
-                <div class="select">
-                  <select name="bedrooms">
-                    <option>No. of Bathrooms</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
               <div class="form-box pl-15 pr-15 large">
                 <div class="price_filter">
                   <div class="price_slider_amount">
@@ -134,23 +111,23 @@ export default {
   },
   methods: {
     async searching() {
-      const route = {
-        name: "Properties"
-      };
-      if (this.search !== "") {
-        route.query = {
-          city: this.search.city.slice(10),
-          district: this.search.district.slice(5),
-          areamin: this.search.areamin,
-          areamax: this.search.areamax
-        };
-      }
-      await this.$router.push(route);
+      // const route = {
+      //   name: "Properties"
+      // };
+      // if (this.search !== "") {
+      //   route.query = {
+      //     city: this.search.city.slice(10),
+      //     district: this.search.district.slice(5),
+      //     areamin: this.search.areamin,
+      //     areamax: this.search.areamax
+      //   };
+      // }
+      // await this.$router.push(route);
       await this.$root.$emit("searching", this.search);
     },
 
     onChange(event) {
-      console.log(event.target.value);
+      this.search.district = "";
       if (event.target.value == "Thành phố Hà Nội") this.district = Json01;
       if (event.target.value == "Thành phố Đà Nẵng") this.district = Json02;
       if (event.target.value == "Thành phố Hồ Chí Minh") this.district = Json03;

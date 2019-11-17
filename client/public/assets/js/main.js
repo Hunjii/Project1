@@ -26,7 +26,7 @@ Design and Developed by: Devitems
 ======================================*/
 $(document).ready(function() {
   (function($) {
-    'use strict';
+    "use strict";
 
     /*------------------------------------
     01. Menu
@@ -35,19 +35,19 @@ $(document).ready(function() {
     /*------------------------------------
     Menu Active Class
 -------------------------------------- */
-    $('ul.main-menu li').click(function() {
-      $(this).addClass('active');
+    $("ul.main-menu li").click(function() {
+      $(this).addClass("active");
     });
 
     /*------------------------------------
     Menu Stick
 -------------------------------------- */
-    $(window).on('scroll', function() {
+    $(window).on("scroll", function() {
       var scroll = $(window).scrollTop();
       if (scroll < 245) {
-        $('#sticky-header').removeClass('sticky');
+        $("#sticky-header").removeClass("sticky");
       } else {
-        $('#sticky-header').addClass('sticky');
+        $("#sticky-header").addClass("sticky");
       }
     });
 
@@ -57,7 +57,7 @@ $(document).ready(function() {
     /*------------------------------------
     Property Carousel
 ------------------------------------- */
-    $('.property-carousel').owlCarousel({
+    $(".property-carousel").owlCarousel({
       loop: true,
       autoPlay: false,
       smartSpeed: 2000,
@@ -87,7 +87,7 @@ $(document).ready(function() {
     /*------------------------------------
     Blog Carousel
 ------------------------------------- */
-    $('.blog-carousel').owlCarousel({
+    $(".blog-carousel").owlCarousel({
       loop: true,
       autoPlay: false,
       smartSpeed: 2000,
@@ -116,12 +116,12 @@ $(document).ready(function() {
 
     /* portfolio active  */
 
-    $('.properties-slider').owlCarousel({
+    $(".properties-slider").owlCarousel({
       loop: true,
       items: 1,
       dots: false,
-      animateOut: 'fadeOut',
-      animateIn: 'fadeIn',
+      animateOut: "fadeOut",
+      animateIn: "fadeIn",
       nav: true,
       navText: [
         '<i class="fa fa-angle-left"></i>',
@@ -142,13 +142,13 @@ $(document).ready(function() {
 
     /* portfolio active  */
 
-    $('.properties-tab-slider').owlCarousel({
+    $(".properties-tab-slider").owlCarousel({
       loop: true,
       items: 6,
       margin: 20,
       dots: false,
-      animateOut: 'fadeOut',
-      animateIn: 'fadeIn',
+      animateOut: "fadeOut",
+      animateIn: "fadeIn",
       nav: true,
       navText: [
         '<i class="fa fa-angle-left"></i>',
@@ -170,7 +170,7 @@ $(document).ready(function() {
     /*------------------------------------
     Client Carousel
 ------------------------------------- */
-    $('.client-carousel').owlCarousel({
+    $(".client-carousel").owlCarousel({
       loop: true,
       autoPlay: false,
       smartSpeed: 2000,
@@ -202,9 +202,9 @@ $(document).ready(function() {
     03. ScrollUp jquery
 --------------------------------------------- */
     $.scrollUp({
-      easingType: 'linear',
+      easingType: "linear",
       scrollSpeed: 900,
-      animation: 'fade'
+      animation: "fade"
     });
 
     /*-------------------------------------------
@@ -215,13 +215,13 @@ $(document).ready(function() {
     /*-------------------------------------------
     05. jQuery MeanMenu
 --------------------------------------------- */
-    jQuery('nav#dropdown').meanmenu();
+    jQuery("nav#dropdown").meanmenu();
 
     /*--------------------------
     06. Counter Up
 ---------------------------- */
 
-    $('.counter').counterUp({
+    $(".counter").counterUp({
       delay: 70,
       time: 5000
     });
@@ -229,7 +229,7 @@ $(document).ready(function() {
     /*------------------------------------
 	07. Textilate Activation
 --------------------------------------*/
-    $('.tlt').textillate({
+    $(".tlt").textillate({
       loop: true,
       minDisplayTime: 2500
     });
@@ -237,48 +237,48 @@ $(document).ready(function() {
     /*------------------------------------
 	08. Price slider active
 --------------------------------------*/
-    $('.slider-range').slider({
+    $(".slider-range").slider({
       range: true,
       min: 80,
       max: 2500,
       values: [300, 2000],
       slide: function(event, ui) {
-        $('.amount').val('$' + ui.values[0] + ' - $' + ui.values[1]);
+        $(".amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
       }
     });
-    $('.amount').val(
-      '$' +
-        $('.slider-range').slider('values', 0) +
-        ' - $' +
-        $('.slider-range').slider('values', 1)
+    $(".amount").val(
+      "$" +
+        $(".slider-range").slider("values", 0) +
+        " - $" +
+        $(".slider-range").slider("values", 1)
     );
 
     /*------------------------------------
 	09. Video Player
 --------------------------------------*/
-    $('.player').YTPlayer({
+    $(".player").YTPlayer({
       showControls: false
     });
 
-    $('.player-small').YTPlayer({
+    $(".player-small").YTPlayer({
       showControls: true
     });
 
-    $('.player-blog').YTPlayer({
+    $(".player-blog").YTPlayer({
       showControls: true
     });
 
     /*------------------------------------
 	11. Testimonial Slick Carousel 
 --------------------------------------*/
-    $('.testimonial-image-slider').slick({
+    $(".testimonial-image-slider").slick({
       slidesToShow: 3,
       slidesToScroll: 1,
       dots: true,
       arrows: false,
       centerMode: true,
       focusOnSelect: true,
-      centerPadding: '10px',
+      centerPadding: "10px",
       responsive: [
         {
           breakpoint: 992,

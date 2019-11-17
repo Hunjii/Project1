@@ -21,7 +21,7 @@
           <p v-if="this.rooms.length == 0">Nothing hear</p>
           <div
             class="col-lg-4 col-md-6 mb-40 col-sm-6"
-            v-for="(room, index) in rooms"
+            v-for="(room, index) in filterActive(rooms)"
             v-bind:item="room"
             v-bind:index="index"
             v-bind:key="room._id"
@@ -165,6 +165,8 @@ export default {
         search.areamax
       ).then(res => {
         this.rooms = res;
+      }).catch(err =>{
+        console.log(err);
       });
       console.log(this.rooms);
     });
