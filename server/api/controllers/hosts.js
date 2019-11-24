@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const User = require("../models/user");
+const Host = require("../models/host");
 
-exports.user_signup = (req, res, next) => {
-  User.find({ email: req.body.email })
+exports.host_signup = (req, res, next) => {
+  Host.find({ email: req.body.email })
     .exec()
-    .then(user => {
-      if (user.length >= 1) {
+    .then(host => {
+      if (host.length >= 1) {
         return res.status(409).json({
           message: "Mail exists"
         });
@@ -19,17 +19,22 @@ exports.user_signup = (req, res, next) => {
               error: err
             });
           } else {
-            const user = new User({
+            const host = new Host({
               _id: new mongoose.Types.ObjectId(),
               email: req.body.email,
-              password: hash
+              password: hash,
+              name: req.body.name,
+              sex: req.body.sex,
+              birthday: new Date(req.body.birthday),
+              phone: req.body.phone,
+              address: req.body.address
             });
-            user
+            host
               .save()
               .then(result => {
                 console.log(result);
                 res.status(201).json({
-                  message: "User created"
+                  message: "Host created"
                 });
               })
               .catch(err => {
@@ -44,16 +49,16 @@ exports.user_signup = (req, res, next) => {
     });
 };
 
-exports.user_login = (req, res, next) => {
-  User.find({ email: req.body.email })
+exports.host_login = (req, res, next) => {
+  Host.find({ email: req.body.email })
     .exec()
-    .then(user => {
-      if (user.length < 1) {
+    .then(host => {
+      if (host.length < 1) {
         return res.status(401).json({
           message: "Auth failed"
         });
       }
-      bcrypt.compare(req.body.password, user[0].password, (err, result) => {
+      bcrypt.compare(req.body.password, host[0].password, (err, result) => {
         if (err) {
           return res.status(401).json({
             message: "Auth failed"
@@ -62,8 +67,8 @@ exports.user_login = (req, res, next) => {
         if (result) {
           const token = jwt.sign(
             {
-              email: user[0].email,
-              userId: user[0]._id
+              email: host[0].email,
+              userId: host[0]._id
             },
             process.env.JWT_KEY,
             {
@@ -73,7 +78,8 @@ exports.user_login = (req, res, next) => {
           res.header("auth-token", token);
           return res.status(200).json({
             message: "Auth successful",
-            token: token
+            token: token,
+            hostId: host[0]._id
           });
         }
         res.status(401).json({
@@ -89,12 +95,12 @@ exports.user_login = (req, res, next) => {
     });
 };
 
-exports.user_delete = (req, res, next) => {
-  User.remove({ _id: req.params.userId })
+exports.host_delete = (req, res, next) => {
+  Host.remove({ _id: req.params.hostId })
     .exec()
     .then(result => {
       res.status(200).json({
-        message: "User deleted"
+        message: "Host deleted"
       });
     })
     .catch(err => {
@@ -105,21 +111,25 @@ exports.user_delete = (req, res, next) => {
     });
 };
 
-exports.user_get_all = (req, res, next) => {
-  User.find()
+exports.host_get_all = (req, res, next) => {
+  Host.find()
     .exec()
     .then(docs => {
       const response = {
         count: docs.length,
-        Users: docs.map(doc => {
+        Hosts: docs.map(doc => {
           return {
             _id: doc._id,
             email: doc.email,
             password: doc.password,
-            active: doc.active,
+            name: doc.name,
+            sex: doc.sex,
+            birthday: doc.birthday,
+            phone: doc.phone,
+            address: doc.address,
             request: {
               type: "GET",
-              url: "http://localhost:3000/api/User/" + doc._id
+              url: "http://localhost:3000/api/host/" + doc._id
             }
           };
         })
@@ -134,17 +144,17 @@ exports.user_get_all = (req, res, next) => {
     });
 };
 
-exports.User_update = (req, res, next) => {
+exports.host_update = (req, res, next) => {
   const id = req.params.userId;
   const updateOps = {};
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
-  User.update({ _id: id }, { $set: updateOps })
+  Host.update({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {
       res.status(200).json({
-        message: "User updated",
+        message: "Host updated",
         request: {
           type: "GET",
           url: "http://localhost:3000/api/Users/"

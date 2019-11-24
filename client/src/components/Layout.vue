@@ -25,8 +25,8 @@ export default {
 };
 </script>
 
-<style>
-@import "../.././public/assets/css/bootstrap.min.css";
+<style scoped>
+/* @import "../.././public/assets/css/bootstrap.min.css"; */
 @import "../.././public/assets/css/core.css";
 @import "../.././public/assets/css/shortcode/shortcodes.css";
 @import "../.././public/assets/style.css";

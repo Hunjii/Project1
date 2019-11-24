@@ -18,7 +18,11 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <form @submit.prevent="CreateRoom" method="post" enctype="multipart/form-data">
+            <form
+              @submit.prevent="CreateRoom"
+              method="post"
+              enctype="multipart/form-data"
+            >
               <div class="col-10">
                 <h4 class="sub-title mb-40">Step # 1</h4>
                 <h4 class="details-title mb-34">Basic Information</h4>
@@ -44,7 +48,9 @@
                 />
               </div>
               <div class="col-10">
-                <h4 class="details-title text-small mb-18">Property Description</h4>
+                <h4 class="details-title text-small mb-18">
+                  Property Description
+                </h4>
                 <textarea
                   name="post-comment"
                   cols="30"
@@ -80,7 +86,9 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6 fix">
-                      <h4 class="details-title text-small mb-16">No. of Bedroom</h4>
+                      <h4 class="details-title text-small mb-16">
+                        No. of Bedroom
+                      </h4>
                       <div class="select">
                         <select name="bedrooms" v-model="room.bedroom">
                           <option>No. of Bedroom</option>
@@ -94,7 +102,9 @@
                       </div>
                     </div>
                     <div class="col-md-6 fix">
-                      <h4 class="details-title text-small mb-16">No. of Bathroom</h4>
+                      <h4 class="details-title text-small mb-16">
+                        No. of Bathroom
+                      </h4>
                       <div class="select">
                         <select name="bathrooms" v-model="room.bathroom">
                           <option>No. of Bathroom</option>
@@ -128,7 +138,9 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6 fix">
-                      <h4 class="details-title text-small mb-16">No. of Garage</h4>
+                      <h4 class="details-title text-small mb-16">
+                        No. of Garage
+                      </h4>
                       <div class="select">
                         <select name="garage" v-model="room.garage">
                           <option>No. of Garage</option>
@@ -142,7 +154,9 @@
                       </div>
                     </div>
                     <div class="col-md-6 fix">
-                      <h4 class="details-title text-small mb-16">No. of Kitchen</h4>
+                      <h4 class="details-title text-small mb-16">
+                        No. of Kitchen
+                      </h4>
                       <div class="select">
                         <select name="garage" v-model="room.kitchen">
                           <option>No. of Kitchen</option>
@@ -164,82 +178,46 @@
               <div class="col-10">
                 <h4 class="details-title mb-34">Image Gallery</h4>
                 <div class="upload text-center">
-                  <input type="file" name="fileupload" ref="file" @change="onFileSelected" />
+                  <input
+                    type="file"
+                    name="fileupload"
+                    ref="file"
+                    @change="onFileSelected"
+                  />
                   <span class="action text-white">
                     <i class="fa fa-folder-open mr-10"></i>Browse Images
                   </span>
                 </div>
-              </div>
-              <div class="col-10">
-                <h4 class="details-title mb-34 mt-60">Video Presentation</h4>
+                <!-- <div class="upload text-center">
+                  <input
+                    type="file"
+                    name="fileupload"
+                    ref="file"
+                    @change="onFileSelected"
+                  />
+                  <span class="action text-white">
+                    <i class="fa fa-folder-open mr-10"></i>Browse Images
+                  </span>
+                </div>
                 <div class="upload text-center">
-                  <input type="file" name="fileuploads" />
-                  <span class="action text-white">Add Video</span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 fix">
-                  <h4 class="details-title mb-38 mt-60">Property Features</h4>
-                  <div class="fix pb-38 property-feature">
-                    <div class="desc-info mb-38">
-                      <i class="fa fa-check-square-o mr-9"></i>
-                      <span>Air Conditioning</span>
-                    </div>
-                    <div class="desc-info mb-38">
-                      <i class="fa fa-check-square-o mr-9"></i>
-                      <span>Bedding</span>
-                    </div>
-                    <div class="desc-info mb-38">
-                      <i class="fa fa-check-square-o mr-9"></i>
-                      <span>Balcony</span>
-                    </div>
-                    <div class="desc-info mb-38">
-                      <i class="fa fa-check-square-o mr-9"></i>
-                      <span>Cable TV</span>
-                    </div>
-                    <div class="desc-info mb-38">
-                      <i class="fa fa-check-square-o mr-9"></i>
-                      <span>Internet</span>
-                    </div>
-                    <div class="desc-info mb-38">
-                      <i class="fa fa-check-square-o mr-9"></i>
-                      <span>Parking</span>
-                    </div>
-                    <div class="desc-info mb-38">
-                      <i class="fa fa-check-square-o mr-9"></i>
-                      <span>Lift</span>
-                    </div>
-                    <div class="desc-info mb-38">
-                      <i class="fa fa-check-square-o mr-9"></i>
-                      <span>Pool</span>
-                    </div>
-                    <div class="desc-info">
-                      <i class="fa fa-check-square-o mr-9"></i>
-                      <span>Dishwasher</span>
-                    </div>
-                    <div class="desc-info">
-                      <i class="fa fa-check-square-o mr-9"></i>
-                      <span>Toaster</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 fix">
-                  <h4 class="details-title mb-38 mt-64">Place on Map</h4>
-                  <!--Start of Google Map-->
-                  <div class="google-map-area">
-                    <!--  Map Section -->
-                    <div id="contacts" class="map-area">
-                      <div id="googleMap" style="width:100%;height:305px;"></div>
-                    </div>
-                  </div>
-                  <!--End of Google Map-->
-                </div>
+                  <input
+                    type="file"
+                    name="fileupload"
+                    ref="file"
+                    @change="onFileSelected"
+                  />
+                  <span class="action text-white">
+                    <i class="fa fa-folder-open mr-10"></i>Browse Images
+                  </span>
+                </div> -->
               </div>
               <div class="col-10">
                 <button
                   :v-on:click="CreateRoom"
                   class="button text-white text-uppercase lemon pull_right mt-65"
-                >ADD Property</button>
+                >
+                  ADD Property
+                </button>
               </div>
             </form>
           </div>
@@ -292,6 +270,8 @@ export default {
       formData.append("bedroom", this.room.bedroom);
       formData.append("active", this.room.active);
 
+      formData.append("hostId", localStorage.getItem("id"));
+
       try {
         const auth = {
           headers: { Authorization: "Bearer " + localStorage.getItem("token") }
@@ -307,5 +287,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

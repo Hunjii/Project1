@@ -1,18 +1,5 @@
 <template>
   <div>
-    <!--Start of Banner Area-->
-    <!-- <div class="banner-area bg-2 bg-overlay-2 ptb-165">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="banner-title text-center">
-              <h1 class="text-uppercase text-white">Properties</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
-    <!--End of Banner Area-->
     <Search />
     <!--Start of Featured Property Area-->
     <div class="property-area ptb-120 property-page">
@@ -163,11 +150,13 @@ export default {
         search.district.slice(5),
         search.areamin,
         search.areamax
-      ).then(res => {
-        this.rooms = res;
-      }).catch(err =>{
-        console.log(err);
-      });
+      )
+        .then(res => {
+          this.rooms = res;
+        })
+        .catch(err => {
+          console.log(err);
+        });
       console.log(this.rooms);
     });
   },

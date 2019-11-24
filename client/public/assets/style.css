@@ -64,7 +64,7 @@
 .select select {
   -moz-appearance: none;
   -webkit-appearance: none;
-  background: #ffffff url('images/icons/arrow.png') no-repeat scroll 92% 50%;
+  background: #ffffff url("images/icons/arrow.png") no-repeat scroll 92% 50%;
   border: medium none;
   color: #555454;
   cursor: pointer;
@@ -75,7 +75,7 @@
 }
 .single-info label {
   color: #525252;
-  font-family: 'montserratsemi_bold';
+  font-family: "montserratsemi_bold";
   font-size: 14px;
   line-height: 34px;
   width: 160px;
@@ -84,7 +84,7 @@
   background: #ffffff none repeat scroll 0 0;
   border: 1px solid #dedede;
   color: #a2a2a2;
-  font-family: 'montserratlight';
+  font-family: "montserratlight";
   font-size: 12px;
   height: 36px;
 }
@@ -151,11 +151,11 @@
   padding-left: 0;
 }
 span.text-dark {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
 }
 .about-area .link {
   font-size: 16px;
-  font-family: 'raleway';
+  font-family: "raleway";
   font-weight: 500;
 }
 .about-area .col-md-6 img {
@@ -171,7 +171,7 @@ span.text-dark {
 .link > a:before,
 .link > a:after {
   bottom: -4px;
-  content: '';
+  content: "";
   height: 1px;
   left: 0;
   position: absolute;
@@ -194,7 +194,7 @@ span.text-dark {
 /*  3.  Service Area
 /*----------------------------------------*/
 .single-service-text h4 {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 18px;
   font-weight: 400;
 }
@@ -209,12 +209,12 @@ span.text-dark {
 }
 .property-title h4 {
   color: #fafafa;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 16px;
   font-weight: 400;
 }
 .property-title h3 {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 20px;
   font-weight: 400;
   color: #95c41f;
@@ -275,13 +275,13 @@ span.text-dark {
   border: 1px solid #ffffff;
   color: #ffffff;
   display: inline-block;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-weight: 400;
   left: 0;
   line-height: 38px;
   margin: -20px auto 0;
   opacity: 0;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   position: absolute;
   right: 0;
   text-align: center;
@@ -299,13 +299,13 @@ span.text-dark {
 }
 .single-property:hover .property-image a span.img-button {
   opacity: 1;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   -webkit-transform: scale(1);
   transform: scale(1);
 }
 .property-image span.p-tag {
   color: #ffffff;
-  font-family: 'montserratsemi_bold';
+  font-family: "montserratsemi_bold";
   font-weight: 500;
   height: 28px;
   left: 0;
@@ -347,7 +347,7 @@ span.text-dark {
   font-weight: 800;
 }
 .advertise-area h2 {
-  font-family: 'montserratsemi_bold';
+  font-family: "montserratsemi_bold";
   font-size: 32px;
   font-weight: 500;
 }
@@ -360,7 +360,7 @@ span.text-dark {
 }
 .single-feature-title > h4 {
   color: #303030;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 16px;
   font-weight: 400;
 }
@@ -376,7 +376,7 @@ span.text-dark {
 .text-icon > h2 {
   color: #ffffff;
   display: inline-block;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-weight: 400;
   line-height: 28px;
   position: relative;
@@ -384,7 +384,7 @@ span.text-dark {
 }
 .single-fun-factor h4 {
   color: #e0e0e0;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 15px;
   font-weight: 400;
 }
@@ -406,7 +406,7 @@ span.text-dark {
 /*----------------------------------------*/
 .member-text > h3 {
   color: #ffffff;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 16px;
   font-weight: 400;
 }
@@ -419,11 +419,11 @@ span.text-dark {
 }
 .member-image:after {
   background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
-  content: '';
+  content: "";
   height: 100%;
   left: 0;
   opacity: 0;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   position: absolute;
   top: 0;
   -webkit-transition: all 0.3s ease 0s;
@@ -432,7 +432,7 @@ span.text-dark {
 }
 .single-team-member:hover .member-image:after {
   opacity: 1;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 .link-effect {
   bottom: 0;
@@ -561,17 +561,17 @@ span.text-dark {
 }
 .sin-testiText span {
   color: #1f223e;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-weight: 400;
 }
 .sin-div {
   margin: 0 41px;
   opacity: 0.3;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
 }
 .sin-div.slick-current {
   opacity: 1;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 .slick-slider {
   z-index: 9;
@@ -607,20 +607,20 @@ span.text-dark {
   margin: 30px auto 0;
 }
 .sin-testiText h4 {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 14px;
   font-weight: 400;
 }
 .sin-testiText h4 span {
   color: #606060;
-  font-family: 'montserratlight';
+  font-family: "montserratlight";
 }
 .slick-current .sin-testiText {
   position: relative;
 }
 .slick-current .sin-testiText:after {
-  background: rgba(0, 0, 0, 0) url('images/icons/coma.png') repeat scroll 0 0;
-  content: '';
+  background: rgba(0, 0, 0, 0) url("images/icons/coma.png") repeat scroll 0 0;
+  content: "";
   height: 47px;
   left: 0;
   margin: auto;
@@ -641,7 +641,7 @@ span.text-dark {
 .blog-image span.blog-text {
   bottom: 0;
   color: #fafafa;
-  font-family: 'montserratsemi_bold';
+  font-family: "montserratsemi_bold";
   font-size: 20px;
   height: 46px;
   left: 0;
@@ -651,7 +651,7 @@ span.text-dark {
   z-index: 2;
 }
 .blog-image span.blog-text span {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 14px;
   font-weight: 400;
 }
@@ -662,7 +662,7 @@ span.text-dark {
   color: #f4f4f4;
 }
 .single-blog-text h5 {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-weight: 400;
 }
 .single-blog .single-blog-text h5:hover {
@@ -729,7 +729,7 @@ span.text-dark {
 }
 .s-title {
   color: #1f223e;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 16px;
   letter-spacing: 3px;
   line-height: 13px;
@@ -760,7 +760,7 @@ span.text-dark {
 }
 .about-text h4 {
   color: #1f223e;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 18px;
   font-weight: 400;
   line-height: 15px;
@@ -770,7 +770,7 @@ span.text-dark {
   right: auto;
 }
 .regular {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
 }
 .b-s-image-2,
 .b-s-image-3 {
@@ -801,7 +801,7 @@ span.text-dark {
   border-color: #ccc;
 }
 .sidebar-widget-title > h5 {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-weight: 400;
   padding-bottom: 12px;
   position: relative;
@@ -809,7 +809,7 @@ span.text-dark {
 .sidebar-widget-title > h5:after {
   background: #9ac438 none repeat scroll 0 0;
   bottom: 0;
-  content: '';
+  content: "";
   height: 3px;
   left: 0;
   position: absolute;
@@ -839,7 +839,7 @@ span.text-dark {
   width: 105px;
 }
 .sidebar-agent h5 {
-  font-family: 'montserratlight';
+  font-family: "montserratlight";
   font-size: 12px;
   font-weight: 300;
   text-align: center;
@@ -875,7 +875,7 @@ span.text-dark {
   font-size: 24px;
 }
 .property-content p {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   line-height: 24px;
 }
 .property-content p span {
@@ -893,14 +893,14 @@ span.text-dark {
   width: 100%;
 }
 .property-desc > p span {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
 }
 .details-title,
 .author-info h5,
 .comment-text .reply,
 .package-list span.dark {
   color: #303030;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 18px;
   font-weight: 400;
 }
@@ -927,7 +927,7 @@ span.text-dark {
 }
 .desc-info .price {
   font-size: 16px;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
 }
 .desc-info .location {
   font-size: 15px;
@@ -1024,7 +1024,7 @@ iframe {
 }
 .post-texts > h5 {
   color: #303030;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -1062,14 +1062,14 @@ iframe {
 }
 .blog-details .bold {
   color: #303030;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 16px;
   font-weight: 400;
 }
 .tags-and-links span {
   color: #303030;
   font-weight: 400;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 16px;
 }
 .tags > li,
@@ -1125,7 +1125,7 @@ iframe {
   font-size: 15px;
 }
 .agent-details-content span.text-dark {
-  font-family: 'montserratlight';
+  font-family: "montserratlight";
   font-weight: 300;
 }
 .agent-details-content .single-fun-factor h4 {
@@ -1153,7 +1153,7 @@ iframe {
   margin-right: -12px;
 }
 .package-title h4 {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-size: 22px;
   font-weight: 400;
   line-height: 18px;
@@ -1173,13 +1173,13 @@ iframe {
 /*  20.  Single Post Page
 /*----------------------------------------*/
 h4.sub-title {
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-weight: 400;
   position: relative;
 }
 h4.sub-title:after {
   bottom: -8px;
-  content: '';
+  content: "";
   height: 2px;
   left: 0;
   position: absolute;
@@ -1197,7 +1197,7 @@ h4.sub-title:after {
   width: 100%;
 }
 .single-post-area .select select {
-  background: #fbfbfb url('images/icons/arrow.png') no-repeat scroll 96% 50%;
+  background: #fbfbfb url("images/icons/arrow.png") no-repeat scroll 96% 50%;
   border: 1px solid #ebebeb;
   color: #606060;
   height: 43px;
@@ -1219,7 +1219,7 @@ h4.sub-title:after {
   height: 100%;
   left: 0;
   opacity: 0;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   position: absolute;
   right: 0;
   top: 0;
@@ -1227,7 +1227,7 @@ h4.sub-title:after {
 }
 .action {
   display: inline-block;
-  font-family: 'montserratregular';
+  font-family: "montserratregular";
   font-weight: 400;
   height: 45px;
   line-height: 43px;
@@ -1306,17 +1306,17 @@ h4.sub-title:after {
 .error-text > h3,
 .error-text h2 {
   color: #303030;
-  font-family: 'montserratsemi_bold';
+  font-family: "montserratsemi_bold";
   font-size: 40px;
   font-weight: 500;
 }
 .error-text h2 {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 30px;
   font-weight: 600;
 }
 .error-text > p {
-  font-family: 'montserratultra_light';
+  font-family: "montserratultra_light";
   font-size: 18px;
   line-height: 28px;
 }
@@ -1324,7 +1324,7 @@ h4.sub-title:after {
   border-radius: 2px;
   color: #ffffff;
   display: inline-block;
-  font-family: 'montserratbold';
+  font-family: "montserratbold";
   padding: 12px 20px;
   background: #95c41f none repeat scroll 0 0;
 }
@@ -1357,7 +1357,7 @@ button.close {
   color: #ffffff;
   height: 26px;
   opacity: 1;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   position: absolute;
   right: 10px;
   top: 13px;
@@ -1368,17 +1368,17 @@ button.close:hover {
   background: #1f223e none repeat scroll 0 0;
   color: #ffffff;
   opacity: 1;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 /*----------------------------------------*/
 /*  24.  Additional Page CSS
 /*----------------------------------------*/
 .fixed-bg-1 {
-  background: rgba(0, 0, 0, 0) url('images/slider/1.jpg') no-repeat fixed center
+  background: rgba(0, 0, 0, 0) url("images/slider/1.jpg") no-repeat fixed center
     top / cover;
 }
 .fixed-bg-2 {
-  background: rgba(0, 0, 0, 0) url('images/slider/2.jpg') no-repeat fixed center
+  background: rgba(0, 0, 0, 0) url("images/slider/2.jpg") no-repeat fixed center
     top / cover;
 }
 .banner-content h1.border-none::after {

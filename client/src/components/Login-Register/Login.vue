@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="header-login-register">
-      <span>
-        <a href="create-agency.html">Create Agency</a>
+      <span v-if="status">
+        <router-link :to="{ name: 'Profile' }">Create Agency</router-link>
       </span>
       <ul class="login" v-if="!status">
         <li>
@@ -12,7 +12,12 @@
             <form @submit.prevent="Login" method="post">
               <div class="input-box mb-19">
                 <i class="fa fa-user"></i>
-                <input type="text" name="user-name" placeholder="Username" v-model="login.email" />
+                <input
+                  type="text"
+                  name="user-name"
+                  placeholder="Username"
+                  v-model="login.email"
+                />
               </div>
               <div class="input-box">
                 <i class="fa fa-lock"></i>
@@ -28,7 +33,9 @@
                   <input type="checkbox" value="remember" name="remember" />
                   <span>Remember me</span>
                 </div>
-                <button class="register-btn button lemon pull_right">Login</button>
+                <button class="register-btn button lemon pull_right">
+                  Login
+                </button>
               </div>
             </form>
           </div>
@@ -42,7 +49,12 @@
             <form @submit.prevent="sign_Up" method="post">
               <div class="input-box mb-19">
                 <i class="fa fa-envelope"></i>
-                <input type="email" name="user-email" placeholder="Email" v-model="signup.email" />
+                <input
+                  type="email"
+                  name="user-email"
+                  placeholder="Email"
+                  v-model="signup.email"
+                />
               </div>
               <div class="input-box mb-19">
                 <i class="fa fa-lock"></i>
@@ -62,8 +74,55 @@
                   :class="repeatPassword"
                 />
               </div>
+              <div class="input-box mb-19">
+                <i class="fa fa-user"></i>
+                <input
+                  type="text"
+                  name="user-email"
+                  placeholder="Name"
+                  v-model="signup.name"
+                />
+              </div>
+              <div class="input-box mb-19">
+                <i class="fa fa-male"></i>
+                <input
+                  type="text"
+                  name="user-email"
+                  placeholder="Sex"
+                  v-model="signup.sex"
+                />
+              </div>
+              <div class="input-box mb-19">
+                <i class="fa fa-birthday-cake"></i>
+                <input
+                  type="text"
+                  name="user-email"
+                  placeholder="Birthday"
+                  v-model="signup.birthday"
+                />
+              </div>
+              <div class="input-box mb-19">
+                <i class="fa fa-phone"></i>
+                <input
+                  type="text"
+                  name="user-email"
+                  placeholder="Phone"
+                  v-model="signup.phone"
+                />
+              </div>
+              <div class="input-box mb-19">
+                <i class="fa fa-map-marker"></i>
+                <input
+                  type="text"
+                  name="user-email"
+                  placeholder="Address"
+                  v-model="signup.address"
+                />
+              </div>
               <div class="button-box mt-20">
-                <button class="register-btn button lemon pull_right">Sign Up</button>
+                <button class="register-btn button lemon pull_right">
+                  Sign Up
+                </button>
               </div>
             </form>
           </div>
@@ -113,7 +172,12 @@ export default {
       signup: {
         email: "",
         password: "",
-        passComfirm: ""
+        passComfirm: "",
+        name: "",
+        sex: "",
+        birthday: "",
+        phone: "",
+        address: ""
       },
       login: {
         email: "",
@@ -137,17 +201,22 @@ export default {
   },
   methods: {
     async sign_Up() {
-      await Service.SignUp(this.signup.email, this.signup.password);
+      await Service.SignUp_client(this.signup);
       this.signup.email = "";
       this.signup.password = "";
     },
 
     async Login() {
-      const login = await Service.Login(this.login.email, this.login.password);
+      const login = await Service.Login_client(
+        this.login.email,
+        this.login.password
+      );
       const token = await login.data.token;
-
+      const hostId = await login.data.hostId;
       localStorage.setItem("token", token);
       localStorage.setItem("email", this.login.email);
+      localStorage.setItem("id", hostId);
+
       this.status = true;
     },
 
@@ -160,7 +229,7 @@ export default {
 };
 </script>
 
-<style  scoped>
+<style scoped>
 .color {
   color: red;
 }

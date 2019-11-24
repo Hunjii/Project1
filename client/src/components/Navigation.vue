@@ -17,10 +17,10 @@
             <div class="pull_right">
               <Login />
             </div>
-            <router-link
+            <!-- <router-link
               :to="{ name : 'AddProperties' }"
               class="add-property-btn button text-uppercase mr-15 modal-view button"
-            >ADD Property</router-link>
+            >ADD Property</router-link> -->
           </div>
         </div>
       </div>
@@ -39,8 +39,14 @@
             <div class="pull_right">
               <nav id="primary-menu">
                 <ul class="main-menu text-right">
-                  <li class="mega-parent active" v-for="(linkObj,index) in navList" :key="index">
-                    <router-link :to="linkObj.path">{{ linkObj.name }}</router-link>
+                  <li
+                    class="mega-parent active"
+                    v-for="(linkObj, index) in navList"
+                    :key="index"
+                  >
+                    <router-link :to="linkObj.path">{{
+                      linkObj.name
+                    }}</router-link>
                   </li>
                 </ul>
               </nav>
@@ -234,5 +240,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

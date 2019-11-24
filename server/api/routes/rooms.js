@@ -45,8 +45,8 @@ router.post(
 
 router.get("/:roomId", RoomsController.Rooms_get_room);
 
-router.patch("/:roomId", checkAuth, RoomsController.Rooms_update_room);
+router.patch("/:roomId", RoomsController.Rooms_update_room);
 
-router.delete("/:roomId", checkAuth, RoomsController.Rooms_delete);
+router.delete("/:roomId", RoomsController.Rooms_delete);
 
 module.exports = router;

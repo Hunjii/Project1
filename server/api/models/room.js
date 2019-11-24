@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const roomSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
@@ -13,8 +13,10 @@ const roomSchema = mongoose.Schema({
   bedroom: { type: Number, required: true, default: 1 },
   kitchen: { type: Number, required: true, default: 1 },
   garage: { type: Number, required: true, default: 1 },
-  active: { type: Boolean, require: true }
+  active: { type: Boolean, require: true, default: false },
+  rent: { type: Boolean, require: true, default: false },
   //host: { type: mongoose.Schema.Types.ObjectId, ref: 'Host' }
+  host: { type: mongoose.Schema.Types.ObjectId, ref: "Host", required: true }
 });
 
-module.exports = mongoose.model('Room', roomSchema);
+module.exports = mongoose.model("Room", roomSchema);

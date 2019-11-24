@@ -4,7 +4,7 @@ const Host = require("../models/host");
 
 exports.Rooms_get_all = (req, res, next) => {
   Room.find()
-    //.select('name price _id RoomImage')
+    .populate("host")
     .exec()
     .then(docs => {
       const response = {
@@ -22,7 +22,9 @@ exports.Rooms_get_all = (req, res, next) => {
             kitchen: doc.kitchen,
             garage: doc.garage,
             active: doc.active,
+            rent: doc.rent,
             roomImage: doc.roomImage,
+            host: doc.host,
             request: {
               type: "GET",
               url: "http://localhost:3000/api/Rooms/" + doc._id
@@ -52,14 +54,13 @@ exports.Rooms_create_room = (req, res, next) => {
     bedroom: req.body.bedroom,
     kitchen: req.body.kitchen,
     garage: req.body.garage,
-    active: req.body.active,
     roomImage: req.files.map(file => {
       return {
         pathImg: file.path.slice(14)
       };
     }),
-    discription: req.body.discription
-    //host: req.body.hostId
+    discription: req.body.discription,
+    host: req.body.hostId
   });
   room
     .save()
@@ -71,6 +72,7 @@ exports.Rooms_create_room = (req, res, next) => {
           name: result.name,
           price: result.price,
           _id: result._id,
+          host: result.host,
           request: {
             type: "GET",
             url: "http://localhost:3000/api/rooms/" + result._id
@@ -88,7 +90,7 @@ exports.Rooms_create_room = (req, res, next) => {
 exports.Rooms_get_room = (req, res, next) => {
   const id = req.params.roomId;
   Room.findById(id)
-    //.select('name price _id roomImage')
+    .populate("host")
     .exec()
     .then(doc => {
       console.log("From database", doc);

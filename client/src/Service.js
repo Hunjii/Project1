@@ -2,6 +2,7 @@ import axios from "axios";
 
 const url_room = "http://localhost:3000/api/rooms";
 const url_user = "http://localhost:3000/api/user";
+const url_host = "http://localhost:3000/api/host";
 
 class Service {
   // Get Rooms
@@ -64,33 +65,91 @@ class Service {
         });
     });
   }
-  static SignUp(email, password) {
+
+  static update_active_Room(room_id) {
+    return new Promise((resolve, reject) => {
+      axios
+        .patch(`${url_room}/${room_id}`, [
+          {
+            propName: "active",
+            value: "true"
+          }
+        ])
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
+  static SignUp_admin(email, password) {
     return axios.post(`${url_user}/signup`, {
       email,
       password
     });
   }
 
-  static Login(email, password) {
+  static SignUp_client(signup) {
+    return axios.post(`${url_host}/signup`, {
+      email: signup.email,
+      password: signup.password,
+      name: signup.name,
+      sex: signup.sex,
+      birthday: signup.birthday,
+      phone: signup.phone,
+      address: signup.address
+    });
+  }
+
+  static Login_admin(email, password) {
     return axios.post(`${url_user}/login`, {
       email,
       password
     });
   }
-  // static register(data) {
-  //   return new Promise((resolve, reject) => {
-  //     axios
-  //       .post(`${url_user}/register`, {
-  //         email: data.email,
-  //         password: data.password
-  //       })
-  //       .then(response => {
-  //         resolve(response);
-  //       })
-  //       .catch(error => {
-  //         reject(error);
-  //       });
-  //   });
-  // }
+
+  static Login_client(email, password) {
+    return axios.post(`${url_host}/login`, {
+      email,
+      password
+    });
+  }
+
+  static getUsers() {
+    return new Promise(async (resolve, rejects) => {
+      try {
+        const res = await axios.get(url_user);
+        const data = res.data;
+        resolve(
+          data.Users.map(user => ({
+            ...user
+          }))
+        );
+      } catch (err) {
+        rejects(err);
+      }
+    });
+  }
+
+  static UpdateUser(User_id, value) {
+    return new Promise((resolve, reject) => {
+      axios
+        .post(`${url_user}/${User_id}`, [
+          {
+            propName: "active",
+            value: value
+          }
+        ])
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
 }
+
 export default Service;
