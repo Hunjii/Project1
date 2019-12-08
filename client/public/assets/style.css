@@ -73,6 +73,19 @@
   padding: 0 16px;
   width: 100%;
 }
+
+.select input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: #ffffff no-repeat scroll 92% 50%;
+  border: medium none;
+  color: #555454;
+  cursor: pointer;
+  font-size: 13px;
+  height: 38px;
+  padding: 0 16px;
+  width: 100%;
+}
 .single-info label {
   color: #525252;
   font-family: "montserratsemi_bold";
@@ -643,11 +656,11 @@ span.text-dark {
   color: #fafafa;
   font-family: "montserratsemi_bold";
   font-size: 20px;
-  height: 46px;
+  height: 30px;
   left: 0;
   position: absolute;
   text-align: center;
-  width: 55px;
+  width: 130px;
   z-index: 2;
 }
 .blog-image span.blog-text span {

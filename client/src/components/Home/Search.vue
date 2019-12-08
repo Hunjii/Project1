@@ -13,9 +13,12 @@
                     @change="onChange($event)"
                   >
                     <option disabled value="">Please select city</option>
-                    <option v-for="data in cityJsons" v-bind:key="data.code">{{
-                      data.name_with_type
-                    }}</option>
+                    <option
+                      v-for="data in cityJsons"
+                      v-bind:key="data.code"
+                      :value="data.name"
+                      >{{ data.name_with_type }}</option
+                    >
                   </select>
                 </div>
               </div>
@@ -27,38 +30,35 @@
                     @change="onChangeDistrict($event)"
                   >
                     <option disabled value="">Please select district</option>
-                    <option v-for="data in district" v-bind:key="data.code">{{
-                      data.name_with_type
-                    }}</option>
+                    <option
+                      v-for="data in district"
+                      v-bind:key="data.code"
+                      :value="data.path"
+                      >{{ data.name_with_type }}</option
+                    >
                   </select>
                 </div>
               </div>
               <div class="form-box mb-40 pl-15 pr-15">
                 <div class="select">
-                  <select name="min-sqft" v-model="search.areamin">
-                    <option disabled value="">Please select min area</option>
-                    <option>0</option>
-                    <option>100</option>
-                    <option>200</option>
-                    <option>300</option>
-                    <option>400</option>
-                  </select>
+                  <input
+                    name="min-sqft"
+                    v-model="search.areamin"
+                    placeholder="Min price"
+                  />
                 </div>
               </div>
               <div class="form-box mb-40 pl-15 pr-15">
                 <div class="select">
-                  <select name="max-sqft" v-model="search.areamax">
-                    <option disabled value="">Please select max area</option>
-                    <option>500</option>
-                    <option>600</option>
-                    <option>700</option>
-                    <option>800</option>
-                    <option>900</option>
-                  </select>
+                  <input
+                    name="max-sqft"
+                    v-model="search.areamax"
+                    placeholder="Max price"
+                  />
                 </div>
               </div>
               <div class="form-box pl-15 pr-15 large">
-                <div class="price_filter">
+                <!-- <div class="price_filter">
                   <div class="price_slider_amount">
                     <div class="slider-values">
                       <span>Price Range</span>
@@ -71,7 +71,7 @@
                     </div>
                   </div>
                   <div class="slider-range"></div>
-                </div>
+                </div> -->
                 <button
                   name="search_price"
                   class="button search_price lemon pull_right ml-30 mr-6"
@@ -128,9 +128,13 @@ export default {
 
     onChange(event) {
       this.search.district = "";
-      if (event.target.value == "Thành phố Hà Nội") this.district = Json01;
-      if (event.target.value == "Thành phố Đà Nẵng") this.district = Json02;
-      if (event.target.value == "Thành phố Hồ Chí Minh") this.district = Json03;
+      this.search.areamax = "";
+      this.search.areamin = "";
+
+      if (event.target.value == "Hà Nội") this.district = Json01;
+      if (event.target.value == "Đà Nẵng") this.district = Json02;
+      if (event.target.value == "Hồ Chí Minh") this.district = Json03;
+      console.log(event.target.value);
     },
 
     onChangeDistrict(event) {

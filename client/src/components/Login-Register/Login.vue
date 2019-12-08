@@ -83,14 +83,23 @@
                   v-model="signup.name"
                 />
               </div>
-              <div class="input-box mb-19">
+              <div class="input-box2 mb-19">
                 <i class="fa fa-male"></i>
                 <input
-                  type="text"
-                  name="user-email"
-                  placeholder="Sex"
+                  type="radio"
+                  name="radio"
+                  value="Nam"
                   v-model="signup.sex"
                 />
+                <span>Male</span>
+
+                <input
+                  type="radio"
+                  name="radio"
+                  value="Nữ"
+                  v-model="signup.sex"
+                />
+                <span>Femal</span>
               </div>
               <div class="input-box mb-19">
                 <i class="fa fa-birthday-cake"></i>
@@ -211,18 +220,21 @@ export default {
         this.login.email,
         this.login.password
       );
-      const token = await login.data.token;
-      const hostId = await login.data.hostId;
-      localStorage.setItem("token", token);
-      localStorage.setItem("email", this.login.email);
-      localStorage.setItem("id", hostId);
+      if (login.data.active) {
+        const token = await login.data.token;
+        const hostId = await login.data.hostId;
+        localStorage.setItem("token", token);
+        localStorage.setItem("email", this.login.email);
+        localStorage.setItem("id", hostId);
 
-      this.status = true;
+        this.status = true;
+      } else alert("Error");
     },
 
     async LogOut() {
       await localStorage.removeItem("token");
       await localStorage.removeItem("email");
+      await localStorage.removeItem("id");
       this.status = false;
     }
   }

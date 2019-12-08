@@ -86,7 +86,8 @@
                     <th>#</th>
                     <th>ID</th>
                     <th>Email</th>
-                    <th>Password</th>
+                    <th>Name</th>
+                    <th>Phone Contact</th>
                     <th>Status</th>
                   </tr>
                 </thead>
@@ -94,10 +95,11 @@
                   <tr v-for="(user, index) in users" v-bind:key="index">
                     <th scope="row">{{ index + 1 }}</th>
                     <td>{{ user._id.slice(0, 10) }} ...</td>
+                    <td>{{ user.name }}</td>
                     <td>{{ user.email }}</td>
-                    <td>{{ user.password.slice(0, 10) }} ...</td>
+                    <td>{{ user.phone }}</td>
                     <td>
-                      <select
+                      <!-- <select
                         type="select"
                         id="exampleCustomSelect"
                         name="customSelect"
@@ -113,7 +115,13 @@
                         >
                           {{ option.text }}
                         </option>
-                      </select>
+                      </select> -->
+                      <input
+                        type="checkbox"
+                        v-model="user.active"
+                        :value="true"
+                        @change="onChange(user)"
+                      />
                     </td>
                   </tr>
                 </tbody>
@@ -136,7 +144,8 @@ export default {
       users: [],
       iActive: false,
       email: "",
-      password: "",
+      name: "",
+      phone: "",
       options: [
         { text: "Active", value: true, class: "redColor" },
         { text: "Lock", value: false, class: "greenColor" }
@@ -150,6 +159,7 @@ export default {
     async GetUser() {
       try {
         this.users = await Service.getUsers();
+        console.log(this.users);
       } catch (err) {
         this.error = err.message;
       }
@@ -168,9 +178,10 @@ export default {
       this.password = "";
     },
 
-    async onChange(user, event) {
+    async onChange(user) {
       try {
-        await Service.UpdateUser(user._id, event.target.value);
+        await Service.UpdateUser(user._id, user.active);
+        console.log(user.active);
       } catch (error) {
         console.log(error);
       }
@@ -185,5 +196,39 @@ export default {
 }
 .redColor {
   color: #e60000;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  width: 60px;
+  height: 25px;
+  -webkit-appearance: none;
+  background: #f03434;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.2);
+  transition: 0.7s;
+}
+
+input:checked[type="checkbox"] {
+  background: rgb(78, 216, 78);
+}
+
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  top: -2px;
+  left: 0;
+  background: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+input:checked[type="checkbox"]:before {
+  left: 30px;
 }
 </style>

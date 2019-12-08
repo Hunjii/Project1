@@ -32,7 +32,6 @@
               <!-- <img :src="`/${img.pathImg}`" alt /> -->
               <carousel
                 :per-page="1"
-                :navigate-to="someLocalProperty"
                 :mouse-drag="false"
                 navigationEnabled="true"
               >
@@ -57,19 +56,6 @@
                   exercitation ullamco laboris nisi ut quipx ea codo loremed
                   consequat. Duis aute irure dolor in reprehenderit in voluptate
                   velit esse cillum dolo
-                </p>
-                <p class="mb-28">
-                  Dom-Inno is the Best should be the consectetur adipiscing
-                  elit, sed do eiusmod tempor incidint ut labore lore gna iqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex eacm emod tempor nt ut labore lore
-                  magna iqua. Ut enim ad minim veniamco laboris nisi ut aliqu
-                </p>
-                <p>
-                  Dom-Inno is the Best should be the consectetur adipiscing
-                  elit, sed do eiusmod tempor incididunt ut labore lore gna
-                  iqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex eacm
                 </p>
               </div>
               <div class="property-details">
@@ -200,46 +186,14 @@
                 </div>
                 <div class="new-comment-post mt-35">
                   <h4 class="details-title pb-8 mb-27">Leave a Review</h4>
-                  <form action="#" method="post">
-                    <div class="comment-form">
-                      <div class="col-5 pr-8">
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder="Your name"
-                          class="mb-28 bg-light"
-                        />
-                      </div>
-                      <div class="col-5 pl-8">
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="Your email"
-                          class="mb-28 bg-light"
-                        />
-                      </div>
-                      <input
-                        type="email"
-                        name="subject"
-                        placeholder="Subject"
-                        class="mb-28 bg-light"
-                      />
-                      <textarea
-                        name="post-comment"
-                        cols="30"
-                        rows="10"
-                        placeholder="Write here"
-                        class="mb-34 bg-light"
-                      ></textarea>
-                      <button
-                        class="button text-uppercase lemon pl-30 pr-30"
-                        type="submit"
-                        value
-                      >
-                        Submit review
-                      </button>
-                    </div>
-                  </form>
+                  <button
+                    class="button text-uppercase lemon pl-30 pr-30"
+                    href="javascript:;"
+                    value
+                    v-on:click="SendRequest()"
+                  >
+                    Send Request to Rent
+                  </button>
                 </div>
               </div>
             </div>
@@ -433,6 +387,7 @@
 <script>
 import Service from "../../Service.js";
 import { Carousel, Slide } from "vue-carousel";
+
 export default {
   name: "PropertiesDetail",
   data() {
@@ -445,13 +400,26 @@ export default {
     Carousel,
     Slide
   },
-  beforeCreate() {},
-  //   method: {
-  //     fetchRoom(_id) {
-  //       this.room = Service.getDetailRoom(_id);
-  //       console.log(this.room);
-  //     }
-  //   },
+  methods: {
+    SendRequest() {
+      if (confirm("Do you rent this apartment?")) {
+        const id_host = localStorage.getItem("id");
+        const id_room = this.room.Room._id;
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = mm + "-" + dd + "-" + yyyy;
+        const date = today;
+        try {
+          Service.SendOder(id_host, id_room, date);
+        } catch (err) {
+          this.error = err.message;
+        }
+      }
+    }
+  },
   async created() {
     this.loading = true;
     try {

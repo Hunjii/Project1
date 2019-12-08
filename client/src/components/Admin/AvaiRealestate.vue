@@ -101,7 +101,7 @@
               </div>
               <div class="widget-content-right">
                 <div class="widget-numbers text-white">
-                  <span>{{ rooms.length }}</span>
+                  <span>{{ filterActive(rooms).length }}</span>
                 </div>
               </div>
             </div>
@@ -111,11 +111,13 @@
           <div class="card mb-3 widget-content bg-arielle-smile">
             <div class="widget-content-wrapper text-white">
               <div class="widget-content-left">
-                <div class="widget-heading">Clients</div>
+                <div class="widget-heading">Total Appartments rented</div>
                 <div class="widget-subheading">Total Clients Profit</div>
               </div>
               <div class="widget-content-right">
-                <div class="widget-numbers text-white"><span>$ 568</span></div>
+                <div class="widget-numbers text-white">
+                  <span>{{ rooms.filter(res => res.rent).length }}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -124,11 +126,15 @@
           <div class="card mb-3 widget-content bg-grow-early">
             <div class="widget-content-wrapper text-white">
               <div class="widget-content-left">
-                <div class="widget-heading">Followers</div>
+                <div class="widget-heading">Total Appartments empty</div>
                 <div class="widget-subheading">People Interested</div>
               </div>
               <div class="widget-content-right">
-                <div class="widget-numbers text-white"><span>46%</span></div>
+                <div class="widget-numbers text-white">
+                  <span>{{
+                    rooms.filter(res => !res.rent && res.active).length
+                  }}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -159,7 +165,8 @@
                   <tr>
                     <th class="text-center">#</th>
                     <th>Name</th>
-                    <th class="text-center">City</th>
+                    <th class="text-center">Address</th>
+                    <th class="text-center">Price</th>
                     <th class="text-center">Status</th>
                     <th class="text-center">Actions</th>
                   </tr>
@@ -188,13 +195,14 @@
                           <div class="widget-content-left flex2">
                             <div class="widget-heading">{{ room.name }}</div>
                             <div class="widget-subheading opacity-7">
-                              {{ room.address }}
+                              {{ room.category }}
                             </div>
                           </div>
                         </div>
                       </div>
                     </td>
-                    <td class="text-center">{{ room.category }}</td>
+                    <td class="text-center">{{ room.address }}</td>
+                    <td class="text-center">${{ room.price }}</td>
                     <td class="text-center" v-if="room.rent">
                       <div class="badge badge-warning">RENT</div>
                     </td>
@@ -205,9 +213,19 @@
                       <button
                         type="button"
                         id="PopoverCustomT-1"
-                        class="btn btn-primary btn-sm"
+                        class="btn btn-warning btn-sm"
+                        @click="Confirmed_rent(room)"
                       >
-                        Details
+                        RENT
+                      </button>
+                      -
+                      <button
+                        type="button"
+                        id="PopoverCustomT-1"
+                        class="btn btn-success btn-sm"
+                        @click="Confirmed_empty(room)"
+                      >
+                        EMPTY
                       </button>
                     </td>
                   </tr>
@@ -362,19 +380,40 @@ export default {
       rooms: []
     };
   },
+  mounted() {
+    this.AllRoomAvai();
+  },
   methods: {
     filterActive(list) {
       return list.filter(room => {
         return room.active;
       });
-    }
-  },
-  async created() {
-    try {
-      this.rooms = await Service.getRooms();
-      console.log(this.rooms);
-    } catch (err) {
-      this.error = err.message;
+    },
+    async AllRoomAvai() {
+      try {
+        this.rooms = await Service.getRooms();
+        console.log(this.rooms);
+      } catch (err) {
+        this.error = err.message;
+      }
+    },
+    async Confirmed_rent(room) {
+      try {
+        await Service.update_active_Room(room._id, "rent", "true").then(() => {
+          this.AllRoomAvai();
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async Confirmed_empty(room) {
+      try {
+        await Service.update_active_Room(room._id, "rent", "false").then(() => {
+          this.AllRoomAvai();
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 };

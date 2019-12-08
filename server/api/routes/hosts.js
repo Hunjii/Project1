@@ -10,8 +10,10 @@ router.post("/signup", HostController.host_signup);
 
 router.post("/login", HostController.host_login);
 
-router.delete("/:userId", checkAuth, HostController.host_delete);
+router.delete("/:hostId", checkAuth, HostController.host_delete);
 
-router.post("/:userId", HostController.host_update);
+router.post("/:hostId", HostController.host_update);
+
+router.get("/:hostId", HostController.host_get_detail);
 
 module.exports = router;

@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const productRoutes = require("./api/routes/rooms.js");
 const userRoustes = require("./api/routes/users.js");
 const hostRoustes = require("./api/routes/hosts.js");
+const oderRoustes = require("./api/routes/oders.js");
 
 // Connect database
 // mongoose.connect(
@@ -43,6 +44,7 @@ app.use((req, res, next) => {
 app.use("/api/rooms", productRoutes);
 app.use("/api/user", userRoustes);
 app.use("/api/host", hostRoustes);
+app.use("/api/oder", oderRoustes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");

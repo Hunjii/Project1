@@ -15,7 +15,6 @@ const roomSchema = mongoose.Schema({
   garage: { type: Number, required: true, default: 1 },
   active: { type: Boolean, require: true, default: false },
   rent: { type: Boolean, require: true, default: false },
-  //host: { type: mongoose.Schema.Types.ObjectId, ref: 'Host' }
   host: { type: mongoose.Schema.Types.ObjectId, ref: "Host", required: true }
 });
 

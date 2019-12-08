@@ -27,7 +27,8 @@ exports.host_signup = (req, res, next) => {
               sex: req.body.sex,
               birthday: new Date(req.body.birthday),
               phone: req.body.phone,
-              address: req.body.address
+              address: req.body.address,
+              active: req.body.active
             });
             host
               .save()
@@ -79,7 +80,8 @@ exports.host_login = (req, res, next) => {
           return res.status(200).json({
             message: "Auth successful",
             token: token,
-            hostId: host[0]._id
+            hostId: host[0]._id,
+            active: host[0].active
           });
         }
         res.status(401).json({
@@ -127,6 +129,7 @@ exports.host_get_all = (req, res, next) => {
             birthday: doc.birthday,
             phone: doc.phone,
             address: doc.address,
+            active: doc.active,
             request: {
               type: "GET",
               url: "http://localhost:3000/api/host/" + doc._id
@@ -145,7 +148,7 @@ exports.host_get_all = (req, res, next) => {
 };
 
 exports.host_update = (req, res, next) => {
-  const id = req.params.userId;
+  const id = req.params.hostId;
   const updateOps = {};
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
@@ -166,5 +169,31 @@ exports.host_update = (req, res, next) => {
       res.status(500).json({
         error: err
       });
+    });
+};
+
+exports.host_get_detail = (req, res, next) => {
+  const id = req.params.hostId;
+  Host.findById(id)
+    .exec()
+    .then(doc => {
+      console.log("From database", doc);
+      if (doc) {
+        res.status(200).json({
+          Host: doc,
+          request: {
+            type: "GET",
+            url: "http://localhost:3000/api/Host"
+          }
+        });
+      } else {
+        res
+          .status(404)
+          .json({ message: "No valid entry found for provided ID" });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
     });
 };

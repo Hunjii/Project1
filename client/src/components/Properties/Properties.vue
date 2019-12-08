@@ -136,28 +136,28 @@ export default {
   methods: {
     filterActive(list) {
       return list.filter(room => {
-        return room.active;
+        return room.active && !room.rent;
       });
     }
   },
   async mounted() {
     await this.$root.$on("searching", search => {
       if (search.areamin == "") search.areamin = "0";
-      if (search.areamax == "") search.areamax = "900";
+      if (search.areamax == "") search.areamax = "100000";
 
       Service.getSerchRooms(
-        search.city.slice(10),
-        search.district.slice(5),
+        search.city,
+        search.district,
         search.areamin,
         search.areamax
       )
         .then(res => {
           this.rooms = res;
+          console.log(this.rooms);
         })
         .catch(err => {
           console.log(err);
         });
-      console.log(this.rooms);
     });
   },
   async created() {

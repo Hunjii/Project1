@@ -329,7 +329,7 @@ export default {
 
     async Confirmed(room) {
       try {
-        await Service.update_active_Room(room._id).then(() => {
+        await Service.update_active_Room(room._id,"active","true").then(() => {
           this.get_unactive_room();
         });
       } catch (error) {

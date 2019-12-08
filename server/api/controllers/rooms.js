@@ -171,7 +171,7 @@ exports.Rooms_search = (req, res, next) => {
     $and: [
       { address: new RegExp(city, "i") },
       { address: new RegExp(district, "i") },
-      { area: { $lte: areamax, $gte: areamin } }
+      { price: { $lte: areamax, $gte: areamin } }
     ]
   })
 
@@ -193,6 +193,7 @@ exports.Rooms_search = (req, res, next) => {
             garage: doc.garage,
             active: doc.active,
             roomImage: doc.roomImage,
+            rent: doc.rent,
             request: {
               type: "GET",
               url: "http://localhost:3000/api/Rooms/" + doc._id
