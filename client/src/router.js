@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "./components/Layout.vue";
 import Home from "./components/Home/Home.vue";
+import ForHost from "./components/Home/ForHost.vue";
 import Properties from "./components/Properties/Properties.vue";
 import Profile from "./components/Properties/ProfileHost.vue";
 import ProfileInfo from "./components/Properties/SettingProfile.vue";
@@ -10,7 +11,7 @@ import EditRealState from "./components/Properties/EditRealState.vue";
 import About from "./components/OtherPage/About.vue";
 import Contact from "./components/OtherPage/Contact.vue";
 import AddProperties from "./components/Properties/AddProperties.vue";
-//import Login from "./components/Admin/SignIn_SignUp";
+import Login from "./components/Admin/SignIn_SignUp";
 import Darshboard from "./components/Admin/Darshboard";
 import User from "./components/Admin/User";
 import AvaiRealestate from "./components/Admin/AvaiRealestate";
@@ -98,6 +99,16 @@ const router = new VueRouter({
           component: Oder
         }
       ]
+    },
+    {
+      path: "/host/login",
+      name: "Login",
+      component: Login
+    },
+    {
+      path: "/forhost",
+      name: "ForHost",
+      component: ForHost
     }
   ]
 });

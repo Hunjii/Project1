@@ -25,7 +25,7 @@ exports.host_signup = (req, res, next) => {
               password: hash,
               name: req.body.name,
               sex: req.body.sex,
-              birthday: new Date(req.body.birthday),
+              birthday: req.body.birthday,
               phone: req.body.phone,
               address: req.body.address,
               active: req.body.active

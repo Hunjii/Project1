@@ -126,15 +126,22 @@ class Service {
   }
 
   static SignUp_client(signup) {
-    return axios.post(`${url_host}/signup`, {
-      email: signup.email,
-      password: signup.password,
-      name: signup.name,
-      sex: signup.sex,
-      birthday: signup.birthday,
-      phone: signup.phone,
-      address: signup.address
-    });
+    if (signup.sex != "") {
+      return axios.post(`${url_host}/signup`, {
+        email: signup.email,
+        password: signup.password,
+        name: signup.name,
+        sex: signup.sex,
+        birthday: signup.birthday,
+        phone: signup.phone,
+        address: signup.address
+      });
+    } else {
+      return axios.post(`${url_host}/signup`, {
+        email: signup.email,
+        password: signup.password
+      });
+    }
   }
 
   static Login_admin(email, password) {

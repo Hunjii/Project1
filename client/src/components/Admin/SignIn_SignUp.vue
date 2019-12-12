@@ -2,17 +2,19 @@
   <div>
     <div class="cont">
       <div class="form sign-in">
-        <h2>SIGN IN</h2>
-        <label>
-          <span>Email</span>
-          <input type="email" />
-        </label>
-        <label>
-          <span>Password</span>
-          <input type="password" />
-        </label>
-        <p class="forgot-pass">Forgot password?</p>
-        <button type="button" class="submit">Sign In</button>
+        <form @submit.prevent="Login">
+          <h2>Đăng nhập</h2>
+          <label>
+            <span>Email</span>
+            <input type="email" v-model="login.email" />
+          </label>
+          <label>
+            <span>Mật Khẩu</span>
+            <input type="password" v-model="login.password" />
+          </label>
+          <p class="forgot-pass">Forgot password?</p>
+          <button class="submit">Sign In</button>
+        </form>
       </div>
       <div class="sub-cont">
         <div class="img">
@@ -32,20 +34,18 @@
           </div>
         </div>
         <div class="form sign-up">
-          <h2>SIGN UP</h2>
-          <label>
-            <span>Name</span>
-            <input type="text" />
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" />
-          </label>
-          <label>
-            <span>Password</span>
-            <input type="password" />
-          </label>
-          <button type="button" class="submit">Sign Up</button>
+          <form @submit.prevent="sign_Up">
+            <h2>Đăng Kí</h2>
+            <label>
+              <span>Email</span>
+              <input type="email" v-model="signup.email" />
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" v-model="signup.password" />
+            </label>
+            <button class="submit">Sign Up</button>
+          </form>
         </div>
       </div>
     </div>
@@ -53,8 +53,47 @@
 </template>
 
 <script>
+import Service from "../../Service.js";
+
 export default {
   name: "SignIn_SignUp",
+  data() {
+    return {
+      login: {
+        email: "",
+        password: ""
+      },
+      signup: {
+        email: "",
+        password: ""
+      }
+    };
+  },
+  methods: {
+    async sign_Up() {
+      const infor = await Service.SignUp_client(this.signup);
+      console.log(infor);
+      this.signup.email = "";
+      this.signup.password = "";
+    },
+
+    async Login() {
+      const login = await Service.Login_client(
+        this.login.email,
+        this.login.password
+      );
+      console.log(login);
+      if (login.data.active) {
+        const token = await login.data.token;
+        const hostId = await login.data.hostId;
+        localStorage.setItem("token", token);
+        localStorage.setItem("email", this.login.email);
+        localStorage.setItem("id", hostId);
+        this.$router.push("/forhost");
+        this.status = true;
+      } else alert("Error");
+    }
+  },
   mounted() {
     document.querySelector(".img__btn").addEventListener("click", function() {
       document.querySelector(".cont").classList.toggle("s--signup");
@@ -284,6 +323,13 @@ h2 {
   width: 100%;
   font-size: 26px;
   text-align: center;
+}
+
+.img__text h2 {
+  width: 100%;
+  font-size: 26px;
+  text-align: center;
+  color: #fff;
 }
 
 label {

@@ -255,5 +255,5 @@ export default {
 </script>
 
 <style scoped>
-@import "../../admin_assets/main.css";
+/* @import "../../admin_assets/main.css"; */
 </style>

@@ -2,7 +2,7 @@
   <div>
     <div class="header-login-register">
       <span v-if="status">
-        <router-link :to="{ name: 'Profile' }">Create Agency</router-link>
+        <router-link :to="{ name: 'Login' }">Create Agency</router-link>
       </span>
       <ul class="login" v-if="!status">
         <li>
