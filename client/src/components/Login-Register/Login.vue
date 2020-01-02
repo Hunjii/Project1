@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="header-login-register">
-      <span v-if="status">
-        <router-link :to="{ name: 'Login' }">Create Agency</router-link>
+      <span>
+        <router-link :to="{ name: 'Login' }">HOST</router-link>
       </span>
       <ul class="login" v-if="!status">
         <li>
@@ -172,25 +172,25 @@
 </template>
 
 <script>
-import Service from "../../Service.js";
+import Service from '../../Service.js';
 
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
       signup: {
-        email: "",
-        password: "",
-        passComfirm: "",
-        name: "",
-        sex: "",
-        birthday: "",
-        phone: "",
-        address: ""
+        email: '',
+        password: '',
+        passComfirm: '',
+        name: '',
+        sex: '',
+        birthday: '',
+        phone: '',
+        address: ''
       },
       login: {
-        email: "",
-        password: ""
+        email: '',
+        password: ''
       },
       status: false
     };
@@ -198,21 +198,21 @@ export default {
   computed: {
     repeatPassword() {
       return this.signup.passComfirm === this.signup.password
-        ? "color2"
-        : "color";
+        ? 'color2'
+        : 'color';
     }
   },
   created() {
-    if (localStorage.getItem("token") !== null) {
-      this.login.email = localStorage.getItem("email");
+    if (sessionStorage.getItem('token') !== null) {
+      this.login.email = sessionStorage.getItem('email');
       return (this.status = true);
     }
   },
   methods: {
     async sign_Up() {
       await Service.SignUp_client(this.signup);
-      this.signup.email = "";
-      this.signup.password = "";
+      this.signup.email = '';
+      this.signup.password = '';
     },
 
     async Login() {
@@ -223,18 +223,18 @@ export default {
       if (login.data.active) {
         const token = await login.data.token;
         const hostId = await login.data.hostId;
-        localStorage.setItem("token", token);
-        localStorage.setItem("email", this.login.email);
-        localStorage.setItem("id", hostId);
+        sessionStorage.setItem('token', token);
+        sessionStorage.setItem('email', this.login.email);
+        sessionStorage.setItem('id', hostId);
 
         this.status = true;
-      } else alert("Error");
+      } else alert('Error');
     },
 
     async LogOut() {
-      await localStorage.removeItem("token");
-      await localStorage.removeItem("email");
-      await localStorage.removeItem("id");
+      await localStorage.removeItem('token');
+      await localStorage.removeItem('email');
+      await localStorage.removeItem('id');
       this.status = false;
     }
   }

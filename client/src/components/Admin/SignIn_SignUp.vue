@@ -86,9 +86,9 @@ export default {
       if (login.data.active) {
         const token = await login.data.token;
         const hostId = await login.data.hostId;
-        localStorage.setItem("token", token);
-        localStorage.setItem("email", this.login.email);
-        localStorage.setItem("id", hostId);
+        sessionStorage.setItem("token", token);
+        sessionStorage.setItem("email", this.login.email);
+        sessionStorage.setItem("id", hostId);
         this.$router.push("/forhost");
         this.status = true;
       } else alert("Error");

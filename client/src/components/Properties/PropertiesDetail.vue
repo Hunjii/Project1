@@ -403,7 +403,7 @@ export default {
   methods: {
     SendRequest() {
       if (confirm("Do you rent this apartment?")) {
-        const id_host = localStorage.getItem("id");
+        const id_host = sessionStorage.getItem("id");
         const id_room = this.room.Room._id;
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, "0");

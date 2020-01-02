@@ -203,11 +203,11 @@
                   Dashboard Example 1
                 </a>
               </li>
-              <li class="app-sidebar__heading">UI Components</li>
+              <li class="app-sidebar__heading">Quản lý</li>
               <li>
                 <a href="#">
                   <i class="metismenu-icon pe-7s-diamond"></i>
-                  Managerment
+                  Quản lý căn hộ
                   <i
                     class="metismenu-state-icon pe-7s-angle-down caret-left"
                   ></i>
@@ -216,13 +216,13 @@
                   <li>
                     <router-link :to="{ name: 'RealEstate' }">
                       <i class="metismenu-icon"></i>
-                      Available
+                      Căn hộ hệ thống
                     </router-link>
                   </li>
                   <li>
                     <router-link :to="{ name: 'Unconfirmed' }">
                       <i class="metismenu-icon"></i>
-                      Unconfirmed
+                      Căn hộ chờ xác nhận
                     </router-link>
                   </li>
                 </ul>
@@ -230,12 +230,13 @@
               <li>
                 <router-link :to="{ name: 'User' }">
                   <i class="metismenu-icon pe-7s-display2"></i>
-                  Tables Account
+                  Quản lý tài khoản
                 </router-link>
               </li>
               <li>
                 <router-link :to="{ name: 'Oder' }">
-                  <i class="metismenu-icon pe-7s-pendrive"> </i>Đơn Hàng
+                  <i class="metismenu-icon pe-7s-pendrive"> </i>Quản lý giao
+                  dịch
                 </router-link>
               </li>
             </ul>
@@ -248,12 +249,12 @@
 </template>
 
 <script>
-import "../../admin_assets/assets/scripts/main";
+import '../../admin_assets/assets/scripts/main';
 export default {
-  name: "Darshboard"
+  name: 'Darshboard'
 };
 </script>
 
 <style scoped>
-/* @import "../../admin_assets/main.css"; */
+@import '../../admin_assets/main.css';
 </style>

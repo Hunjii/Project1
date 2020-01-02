@@ -10,7 +10,7 @@ router.post("/signup", HostController.host_signup);
 
 router.post("/login", HostController.host_login);
 
-router.delete("/:hostId", checkAuth, HostController.host_delete);
+router.delete("/:hostId", HostController.host_delete);
 
 router.post("/:hostId", HostController.host_update);
 

@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Layout from "./components/Layout.vue";
 import Home from "./components/Home/Home.vue";
 import ForHost from "./components/Home/ForHost.vue";
+import MainforHost from "./components/Home/MainforHost.vue";
 import Properties from "./components/Properties/Properties.vue";
 import Profile from "./components/Properties/ProfileHost.vue";
 import ProfileInfo from "./components/Properties/SettingProfile.vue";
@@ -52,11 +53,7 @@ const router = new VueRouter({
           name: "Contact",
           component: Contact
         },
-        {
-          path: "/addproperties",
-          name: "AddProperties",
-          component: AddProperties
-        },
+
         {
           path: "/profile/:id",
           name: "ProfileInfo",
@@ -107,8 +104,18 @@ const router = new VueRouter({
     },
     {
       path: "/forhost",
-      name: "ForHost",
-      component: ForHost
+      component: ForHost,
+      children: [
+        {
+          path: "",
+          component: MainforHost
+        },
+        {
+          path: "addproperties",
+          name: "AddProperties",
+          component: AddProperties
+        }
+      ]
     }
   ]
 });

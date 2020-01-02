@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import Navigation from "./Navigation.vue";
-import Quickview from "./Quickview.vue";
-import Footer from "./Footer.vue";
+import Navigation from './Navigation.vue';
+import Quickview from './Quickview.vue';
+import Footer from './Footer.vue';
 export default {
-  name: "Layout",
+  name: 'Layout',
   components: {
     Navigation,
     Quickview,
@@ -27,12 +27,12 @@ export default {
 
 <style scoped>
 /* @import "../.././public/assets/css/bootstrap.min.css"; */
-@import "../.././public/assets/css/core.css";
-@import "../.././public/assets/css/shortcode/shortcodes.css";
-@import "../.././public/assets/style.css";
-@import "../.././public/assets/css/responsive.css";
-@import "../.././public/assets/css/style-customizer.css";
-@import "../.././public/assets/css/color/color-5.css";
+@import '../.././public/assets/css/core.css';
+@import '../.././public/assets/css/shortcode/shortcodes.css';
+@import '../.././public/assets/style.css';
+@import '../.././public/assets/css/responsive.css';
+@import '../.././public/assets/css/style-customizer.css';
+@import '../.././public/assets/css/color/color-5.css';
 /* .moveInUp-leave-active {
   animation: moveInUp 0.3s ease-in;
 }

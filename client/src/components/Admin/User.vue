@@ -83,21 +83,21 @@
               <table class="mb-0 table">
                 <thead>
                   <tr>
-                    <th>#</th>
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>Name</th>
-                    <th>Phone Contact</th>
-                    <th>Status</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Phone Contact</th>
+                    <th class="text-center">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="(user, index) in users" v-bind:key="index">
                     <th scope="row">{{ index + 1 }}</th>
-                    <td>{{ user._id.slice(0, 10) }} ...</td>
-                    <td>{{ user.name }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.phone }}</td>
+                    <td class="text-center">{{ user._id.slice(0, 10) }} ...</td>
+                    <td class="text-center">{{ user.name }}</td>
+                    <td class="text-center">{{ user.email }}</td>
+                    <td class="text-center">{{ user.phone }}</td>
                     <td>
                       <!-- <select
                         type="select"

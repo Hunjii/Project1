@@ -15,80 +15,6 @@
               </div>
             </div>
           </div>
-          <div class="page-title-actions">
-            <button
-              type="button"
-              data-toggle="tooltip"
-              title="Example Tooltip"
-              data-placement="bottom"
-              class="btn-shadow mr-3 btn btn-dark"
-            >
-              <i class="fa fa-star"></i>
-            </button>
-            <div class="d-inline-block dropdown">
-              <button
-                type="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                class="btn-shadow dropdown-toggle btn btn-info"
-              >
-                <span class="btn-icon-wrapper pr-2 opacity-7">
-                  <i class="fa fa-business-time fa-w-20"></i>
-                </span>
-                Buttons
-              </button>
-              <div
-                tabindex="-1"
-                role="menu"
-                aria-hidden="true"
-                class="dropdown-menu dropdown-menu-right"
-              >
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
-                      <i class="nav-link-icon lnr-inbox"></i>
-                      <span>
-                        Inbox
-                      </span>
-                      <div class="ml-auto badge badge-pill badge-secondary">
-                        86
-                      </div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
-                      <i class="nav-link-icon lnr-book"></i>
-                      <span>
-                        Book
-                      </span>
-                      <div class="ml-auto badge badge-pill badge-danger">5</div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
-                      <i class="nav-link-icon lnr-picture"></i>
-                      <span>
-                        Picture
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      disabled
-                      href="javascript:void(0);"
-                      class="nav-link disabled"
-                    >
-                      <i class="nav-link-icon lnr-file-empty"></i>
-                      <span>
-                        File Disabled
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div class="row">
@@ -96,8 +22,8 @@
           <div class="card mb-3 widget-content bg-midnight-bloom">
             <div class="widget-content-wrapper text-white">
               <div class="widget-content-left">
-                <div class="widget-heading">Total Apartment</div>
-                <div class="widget-subheading">Last year expenses</div>
+                <div class="widget-heading">Tổng căn hộ</div>
+                <div class="widget-subheading">Total Appartments</div>
               </div>
               <div class="widget-content-right">
                 <div class="widget-numbers text-white">
@@ -111,8 +37,8 @@
           <div class="card mb-3 widget-content bg-arielle-smile">
             <div class="widget-content-wrapper text-white">
               <div class="widget-content-left">
-                <div class="widget-heading">Total Appartments rented</div>
-                <div class="widget-subheading">Total Clients Profit</div>
+                <div class="widget-heading">Tổng căn hộ đang thuê</div>
+                <div class="widget-subheading">Total Appartments rented</div>
               </div>
               <div class="widget-content-right">
                 <div class="widget-numbers text-white">
@@ -126,8 +52,8 @@
           <div class="card mb-3 widget-content bg-grow-early">
             <div class="widget-content-wrapper text-white">
               <div class="widget-content-left">
-                <div class="widget-heading">Total Appartments empty</div>
-                <div class="widget-subheading">People Interested</div>
+                <div class="widget-heading">Tổng căn hộ trống</div>
+                <div class="widget-subheading">Total Appartments empty</div>
               </div>
               <div class="widget-content-right">
                 <div class="widget-numbers text-white">
@@ -156,7 +82,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="main-card mb-3 card">
-            <div class="card-header">Active Users</div>
+            <div class="card-header">Danh sách căn hộ</div>
             <div class="table-responsive">
               <table
                 class="align-middle mb-0 table table-borderless table-striped table-hover"
@@ -164,10 +90,10 @@
                 <thead>
                   <tr>
                     <th class="text-center">#</th>
-                    <th>Name</th>
-                    <th class="text-center">Address</th>
-                    <th class="text-center">Price</th>
-                    <th class="text-center">Status</th>
+                    <th>Thông tin</th>
+                    <th class="text-center">Địa chỉ</th>
+                    <th class="text-center">Giá thuê</th>
+                    <th class="text-center">Trạng thái</th>
                     <th class="text-center">Actions</th>
                   </tr>
                 </thead>
@@ -185,8 +111,8 @@
                           <div class="widget-content-left mr-3">
                             <div class="widget-content-left">
                               <img
-                                width="80"
-                                class="rounded-circle"
+                                width="100"
+                                class="rounded-0"
                                 :src="`/${room.roomImage[0].pathImg}`"
                                 alt=""
                               />
@@ -201,7 +127,7 @@
                         </div>
                       </div>
                     </td>
-                    <td class="text-center">{{ room.address }}</td>
+                    <td>{{ room.address }}</td>
                     <td class="text-center">${{ room.price }}</td>
                     <td class="text-center" v-if="room.rent">
                       <div class="badge badge-warning">RENT</div>
@@ -238,143 +164,15 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-3">
-          <div
-            class="card-shadow-danger mb-3 widget-chart widget-chart2 text-left card"
-          >
-            <div class="widget-content">
-              <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                  <div class="widget-content-left pr-2 fsize-1">
-                    <div class="widget-numbers mt-0 fsize-3 text-danger">
-                      71%
-                    </div>
-                  </div>
-                  <div class="widget-content-right w-100">
-                    <div class="progress-bar-xs progress">
-                      <div
-                        class="progress-bar bg-danger"
-                        role="progressbar"
-                        aria-valuenow="71"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                        style="width: 71%;"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="widget-content-left fsize-1">
-                  <div class="text-muted opacity-6">Income Target</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div
-            class="card-shadow-success mb-3 widget-chart widget-chart2 text-left card"
-          >
-            <div class="widget-content">
-              <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                  <div class="widget-content-left pr-2 fsize-1">
-                    <div class="widget-numbers mt-0 fsize-3 text-success">
-                      54%
-                    </div>
-                  </div>
-                  <div class="widget-content-right w-100">
-                    <div class="progress-bar-xs progress">
-                      <div
-                        class="progress-bar bg-success"
-                        role="progressbar"
-                        aria-valuenow="54"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                        style="width: 54%;"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="widget-content-left fsize-1">
-                  <div class="text-muted opacity-6">Expenses Target</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div
-            class="card-shadow-warning mb-3 widget-chart widget-chart2 text-left card"
-          >
-            <div class="widget-content">
-              <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                  <div class="widget-content-left pr-2 fsize-1">
-                    <div class="widget-numbers mt-0 fsize-3 text-warning">
-                      32%
-                    </div>
-                  </div>
-                  <div class="widget-content-right w-100">
-                    <div class="progress-bar-xs progress">
-                      <div
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        aria-valuenow="32"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                        style="width: 32%;"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="widget-content-left fsize-1">
-                  <div class="text-muted opacity-6">Spendings Target</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div
-            class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card"
-          >
-            <div class="widget-content">
-              <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                  <div class="widget-content-left pr-2 fsize-1">
-                    <div class="widget-numbers mt-0 fsize-3 text-info">89%</div>
-                  </div>
-                  <div class="widget-content-right w-100">
-                    <div class="progress-bar-xs progress">
-                      <div
-                        class="progress-bar bg-info"
-                        role="progressbar"
-                        aria-valuenow="89"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                        style="width: 89%;"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="widget-content-left fsize-1">
-                  <div class="text-muted opacity-6">Totals Target</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Service from "../../Service.js";
+import Service from '../../Service.js';
 
 export default {
-  name: "AvaiRealstate",
+  name: 'AvaiRealstate',
   data() {
     return {
       rooms: []
@@ -399,7 +197,7 @@ export default {
     },
     async Confirmed_rent(room) {
       try {
-        await Service.update_active_Room(room._id, "rent", "true").then(() => {
+        await Service.update_active_Room(room._id, 'rent', 'true').then(() => {
           this.AllRoomAvai();
         });
       } catch (error) {
@@ -408,7 +206,7 @@ export default {
     },
     async Confirmed_empty(room) {
       try {
-        await Service.update_active_Room(room._id, "rent", "false").then(() => {
+        await Service.update_active_Room(room._id, 'rent', 'false').then(() => {
           this.AllRoomAvai();
         });
       } catch (error) {
