@@ -19,7 +19,7 @@
     "serialize-javascript": "^2.1.2"
   },
   "devDependencies": {
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.19.3",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.0"
